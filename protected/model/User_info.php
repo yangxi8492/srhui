@@ -1,15 +1,16 @@
 <?php
 class User_info extends Model{
-	public $table_name = "ts_user_info";
+	public $table_name = "sr_user_info";
 	
 	function getOneUser($userid){
+	    if(empty($userid)){
+	        return '';
+	    }
 	    $strUser = $this->find(array(
 	        'userid'=>$userid,
 	    ));
-	    	
 	    if($strUser){
-	        	
-	        //$strUser['username'] = tsTitle($strUser['username']);
+	        $strUser['username'] = tsTitle($strUser['username']);
 	        $strUser['email'] = tsTitle($strUser['email']);
 	        $strUser['phone'] = tsTitle($strUser['phone']);
 	        $strUser['province'] = tsTitle($strUser['province']);
@@ -21,18 +22,15 @@ class User_info extends Model{
 	        if($strUser['face'] && $strUser['path']){
 	            $strUser['face'] = tsXimg($strUser['face'],'user',120,120,$strUser['path'],1);
 	        }elseif($strUser['face'] && $strUser['path']==''){
-	            $strUser['face']	= SITE_URL.'public/images/'.$strUser['face'];
+	            $strUser['face']	= SITE_URL.'i/images/'.$strUser['face'];
 	        }else{
 	            //没有头像
-	            $strUser['face']	= SITE_URL.'public/images/user_large.jpg';
+	            $strUser['face']	= SITE_URL.'i/images/user_large.jpg';
 	        }
-	    
 	        //$strUser['rolename'] = $this->getRole($strUser['allscore']);
-	    
 	    }else{
 	        $strUser = '';
 	    }
-	    	
 	    return $strUser;
 	}
 	

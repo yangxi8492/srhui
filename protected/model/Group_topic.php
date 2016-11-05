@@ -3,8 +3,25 @@
 class Group_topic extends Model
 {
 
-    public $table_name = "ts_group_topic";
+    public $table_name = "sr_group_topic";
     
+    public function getGroupTopicList($param, $sort='addtime desc', $field='*', $limit='0,15'){
+        $arrTopics = $this->findAll($param, $sort, $field, $limit);
+        $userInfo = new User_info();
+        foreach ($arrTopics as $key => $item) {
+            $arrTopic[] = $item;
+            $arrTopic[$key]['count_comment'] = $item['count_comment']; // 回复
+            $arrTopic[$key]['count_view'] = $item['count_view']; // 查看
+            $arrTopic[$key]['addtime'] = getTime(strtotime($item['addtime']),time());
+            $arrTopic[$key]['title'] = tsTitle($item['title']);
+            $arrTopic[$key]['content'] = $item['content'];
+            preg_match('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item['content'],$match);
+            $arrTopic[$key]['images'] = $match[2];//tsXimg($match[2],'group',120,120,'',1);
+            
+            $arrTopic[$key]['user'] = $userInfo->getOneUser($item['userid']);
+        }
+        return $arrTopic;
+    }
     public function getOneTopic($topicId){
         
         $userInfo = new User_info();
@@ -13,7 +30,7 @@ class Group_topic extends Model
         ));
         if($strTopic){
             $strTopic['title'] = tsTitle($strTopic['title']);
-            $strTopic['desc'] = tsDecode($strTopic['content']);
+            $strTopic['content'] = $strTopic['content'];
             $strTopic['addday'] = getTime($strTopic['addtime']);
             if($strTopic['photo']){
                 $strTopic['photo'] = tsXimg($strTopic['photo'],'group',120,120,$strTopic['path'],1);
@@ -35,7 +52,7 @@ class Group_topic extends Model
             $arrTopic[] = $item;
             $arrTopic[$key]['user'] = $userInfo->getOneUser($item['userid']);
             $arrTopic[$key]['title'] = tsTitle($item['title']);
-            $arrTopic[$key]['content'] = tsCutContent($item['content'], 150);
+            $arrTopic[$key]['content'] = tsCutContent($item['content'], 90);
         }
         return $arrTopic;
     }

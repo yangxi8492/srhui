@@ -1,6 +1,6 @@
 <?php
 class Group extends Model{
-	public $table_name = "ts_group";
+	public $table_name = "sr_group";
 	
 	//Refer二级循环，三级循环暂时免谈
 	function recomment($referid){
@@ -9,23 +9,23 @@ class Group extends Model{
 	    $strComment = $topicComment->find(array(
 	        'commentid'=>$referid,
 	    ));
-	print_r($strComment);echo $referid.'ss';exit;
+	
 	    $strComment['content'] = tsDecode($strComment['content']);
 	    $strComment['user'] = $userInfo->getOneUser($strComment['userid']);
 	    return $strComment;
 	}
 	
-	public function getGroupList(){
+	public function getGroupList($sort='addtime asc'){
 	    // 所有小组
 	    $arr = array(
 	        'isaudit' => 0
 	    );
-	    $arrGroup = $this->findAll($arr, 'isrecommend desc,addtime asc');
+	    $arrGroup = $this->findAll($arr, $sort);
 	    foreach ( $arrGroup as $key => $item ) {
 	        $arrGroup [$key] ['groupname'] = tsTitle ( $item['groupname'] );
 	        $arrGroup [$key] ['groupdesc'] = cututf8 ( t(tsDecode($item ['groupdesc'])), 0, 35 );
 	        if($item['photo']){
-	            $arrGroup [$key] ['photo'] = tsXimg($item['photo'],'group',120,120,$item['path'],1);
+	            $arrGroup [$key] ['photo'] = tsXimg($item['photo'],'group',180,180,$item['path'],1);
 	        }else{
 	            $arrGroup [$key] ['photo'] = SITE_URL.'public/images/group.jpg';
 	        }
@@ -61,6 +61,21 @@ class Group extends Model{
 	        }
 	    }
 	    return $strGroup;
+	}
 	
+	public function getOneGroupByDir($dir){
+	    $strGroup=$this->find(array(
+	        'randname'=>$dir,
+	    ));
+	    if($strGroup){
+	        $strGroup['groupname'] = tsTitle($strGroup['groupname']);
+	        $strGroup['groupdesc'] = tsDecode($strGroup['groupdesc']);
+	        if($strGroup['photo']){
+	            $strGroup['photo'] = tsXimg($strGroup['photo'],'group',120,120,$strGroup['path'],1);
+	        }else{
+	            $strGroup['photo'] = SITE_URL.'public/images/group.jpg';
+	        }
+	    }
+	    return $strGroup;
 	}
 }
