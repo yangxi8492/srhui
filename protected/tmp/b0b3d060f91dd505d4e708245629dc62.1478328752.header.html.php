@@ -1,0 +1,20 @@
+<?php if(!class_exists("View", false)) exit("no direct access allowed");?><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>生日汇</title>
+<link rel="stylesheet" type="text/css" href="admin/css/global.css">
+<link rel="stylesheet" type="text/css" href="admin/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="admin/easyui/themes/icon.css">
+<script type="text/javascript" src="admin/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="admin/js/base.js"></script>
+<script type="text/javascript" src="admin/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="admin/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="admin/js/validate.js"></script>
+<style type="text/css">
+	body{background: #f7f7f7;}
+</style>
+
+</head>
+
+<body>

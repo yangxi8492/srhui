@@ -5,7 +5,6 @@ class MainController extends BaseController{
 	}
 	
 	function actionWelcome(){
-	    
 	}
 
 	function actionTest(){
