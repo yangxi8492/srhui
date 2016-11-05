@@ -1,0 +1,10 @@
+/.settings
+/tests/vendor
+/.buildpath
+/.project
+/.metadata
+/uploadfile
+!/.gitignore
+/config.php
+/tmp
+
