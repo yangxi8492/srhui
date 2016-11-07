@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>我的优惠折扣</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/chosen.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="borbe lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>我的优惠折扣
+			</div>
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="fl w mt10 mb15">
+					<!-- 优惠折扣 -->
+					<div class="fl">
+						<select name="dept" data-placeholder="优惠折扣" class="ad-con-sel w120"> 
+						    <option value="-1"></option>
+						    <option value="优惠折扣">优惠折扣</option>
+							<option value="10">10</option>
+							<option value="9.5">9.5</option>
+							<option value="9.0">9.0</option>
+						</select>
+					</div>
+					<!-- 优惠折扣 -->
+					<!-- 状态 -->
+					<div class="fl">
+						<select name="dept" data-placeholder="状态" class="ad-con-sel w120"> 
+						    <option value="-1"></option>
+						    <option value="状态">状态</option>
+							<option value="可用">可用</option>
+							<option value="过期">过期</option>
+						</select>
+					</div>
+					<!-- 状态 -->
+
+					<div class="fl ml30 w300 h30 bore6" style="width:350px;">
+						<input type="button" name="" value="搜索" class="fr searchbtn cl3">
+						<input type="text" name="" value="输入优惠代码、涉及项目、健康对接人、对接人电话" class="fl inputext searchinput fs12 clc" style="width:288px;" autocomplete="off">
+					</div>
+				</div>
+				<table cellspacing="0" cellpadding="0" class="tablebox">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>涉及产品</th>
+							<th>尊享优惠</th>
+							<th>有效期</th>
+							<th>健康对接人</th>
+							<th>对接人电话</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>医卡通</td>
+							<td>9.5折</td>
+							<td>2016/03/01—2016/03/10</td>
+							<td>陈晓</td>
+							<td>15012365456</td>
+							<td>可用</td>
+							<td><a href="" class="cl009">查看产品明细</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>宝贝无忧</td>
+							<td>9.5折</td>
+							<td>2016/03/01—2016/03/10</td>
+							<td>陈晓</td>
+							<td>15012365456</td>
+							<td>过期</td>
+							<td><a href="" class="cl009">查看产品明细</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="paper clearfix">
+					<p class="fr">共3页</p>
+					<a href="#"><</a>
+					<a href="#">1</a>
+					<span>2</span> 
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/chosen.jquery.js"></script>
+	<script type="text/javascript">
+		$('.ad-con-sel').chosen();
+	</script>
+</body>
+</html>

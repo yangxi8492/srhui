@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>资金账户记录</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/chosen.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="borbe lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>账户记录查询>资金账户记录
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="fl w pt05 pb05">
+					账户名：深圳市蓝海进出品贸易股份有限公司
+				</div>
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="borb009 h34 subtitle mt10">
+				<a href="javascript:void(0);" class="current">资金账户记录</a>
+				<a href="">健康产品记录</a>
+			</div>
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="fl w mt10 mb15">
+					<!-- 类型 -->
+					<div class="fl">
+						<select name="dept" data-placeholder="类型" class="ad-con-sel"> 
+						    <option value="-1"></option>
+						    <option value="类型">类型</option>
+						</select>
+					</div>
+					<!-- 类型 -->
+					<!-- 时间 -->
+					<span class="fl lh30 mr10 ml30">时间</span>
+					<input type="text" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})" />
+					<span class="fl clc m05">— </span>
+					<input type="text" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})"  />
+					<!-- 时间 -->
+
+					<div class="fl ml30 w280 h30 bore6">
+						<input type="button" name="" value="搜索" class="fr searchbtn cl3">
+						<input type="text" name="" value="输入消费流水号" class="fl inputext searchinput clc" autocomplete="off">
+					</div>
+				</div>
+				<div class="block tr lh24 pt05 pr05 pb10">共24笔，金额2345.00元</div>
+				<table cellspacing="0" cellpadding="0" class="tablebox">
+					<thead>
+						<tr>
+							<th>流水号</th>
+							<th>时间</th>
+							<th>类型</th>
+							<th>金额（元）</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2016/07/22  12:00</td>
+							<td>在线充值</td>
+							<td>100</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2016/07/22  12:00</td>
+							<td>在线充值</td>
+							<td>80</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2016/07/22  12:00</td>
+							<td>在线充值</td>
+							<td>1040</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>2016/07/22  12:00</td>
+							<td>资金福利分配</td>
+							<td><i class="clf0">-12200</i></td>
+							<td><a href="" class="cl009">详情</a></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>2016/07/22  12:00</td>
+							<td>在线充值</td>
+							<td>100</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- 分页 -->
+				<div class="paper clearfix">
+					<p class="fr">共3页</p>
+					<a href="#"><</a>
+					<a href="#">1</a>
+					<span>2</span> 
+					<a href="#">3</a>
+					<a href="#">></a>
+				</div>
+				<!-- 分页 -->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/chosen.jquery.js"></script>
+	<script type="text/javascript">
+		$('.ad-con-sel').chosen();
+	</script>
+</body>
+</html>

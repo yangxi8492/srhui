@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>福利分配</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+	<link rel="stylesheet" href="../../static/businessManage/artDialog/skins/default.css">
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>福利分配
+			</div>
+			<div class="borb009 h34 subtitle mt10">
+				<a href="javascript:void(0);" class="current">分配资金</a>
+				<a href="">分配健康产品</a>
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<!-- 流程三部曲 -->
+				<ul class="processli mt05 mb20 clf fs12 tc clearfix">
+					<li class="one">①  确认分配</li>
+					<li class="two">②  支付</li>
+					<li>③  分配成功</li>
+				</ul>
+				<!-- 流程三部曲 -->
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w100">账户可用余额：</dt>
+					<dd class="fl" >￥<font id="accountmoney">10000</font></dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10 lh30">
+					<dt class="fl w100">设置金额：</dt>
+					<dd class="fl">
+						<input type="text" name="" value="" class="inputbox fl mr05 w80 bore6" id="PerSet" autocomplete="off"> 元/人 
+						<span class="cl9 maxkxnum hide">最多可选<font class="clf0" id="totalnum">12</font>人</span>
+					</dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w100">覆盖员工：</dt>
+					<dd class="fl">
+						<div class="fl w">
+							<div class="fl bore6" style="width:200px;height:220px; overflow-y:scroll;overflow-x:hidden;">
+								<div class="help_box">
+			                        <h5>
+			                        	<label><input type="checkbox" name="checkall" value="高管  7人" autocomplete="off" class="checkAll" id="checkAll1"></label> 高管  7人
+			                        	<span class="up"></span>
+			                        </h5>
+			                        <div class="hp_cont" style="display:block;">
+		                                <label><input type="checkbox" name="choose-supp" id="aa1" value="员工1" autocomplete="off"> 员工1</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa2" value="员工2" autocomplete="off"> 员工2</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa3" value="员工3" autocomplete="off"> 员工3</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa4" value="员工4" autocomplete="off"> 员工4</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa5" value="员工5" autocomplete="off"> 员工5</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa6" value="员工6" autocomplete="off"> 员工6</label>
+		                                <label><input type="checkbox" name="choose-supp" id="aa7" value="员工7" autocomplete="off"> 员工7</label>
+			                        </div>
+			                    </div>
+			                    <div class="help_box">
+			                        <h5>
+			                        	<label><input type="checkbox" name="checkall" value="" autocomplete="off" class="checkAll"></label> 经理  72人
+			                        	<span class="up"></span>
+			                        </h5>
+			                        <div class="hp_cont">
+		                                <label><input type="checkbox" name="choose-supp" id="bb1" value="员工a" autocomplete="off"> 员工a</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb2" value="员工b" autocomplete="off"> 员工b</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb3" value="员工c" autocomplete="off"> 员工c</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb4" value="员工d" autocomplete="off"> 员工d</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb5" value="员工e" autocomplete="off"> 员工b</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb6" value="员工f" autocomplete="off"> 员工c</label>
+		                                <label><input type="checkbox" name="choose-supp" id="bb7" value="员工g" autocomplete="off"> 员工d</label>
+			                        </div>
+			                    </div>
+			                    <div class="help_box">
+			                        <h5>
+			                        	<label><input type="checkbox" name="checkall" value="" autocomplete="off" class="checkAll"></label> 经理  72人
+			                        	<span class="up"></span>
+			                        </h5>
+			                        <div class="hp_cont">
+		                                <label><input type="checkbox" name="choose-supp" id="cc1" value="员工A" autocomplete="off"> 员工A</label>
+		                                <label><input type="checkbox" name="choose-supp" id="cc2" value="员工B" autocomplete="off"> 员工B</label>
+		                                <label><input type="checkbox" name="choose-supp" id="cc3" value="员工C" autocomplete="off"> 员工C</label>
+		                                <label><input type="checkbox" name="choose-supp" id="cc4" value="员工D" autocomplete="off"> 员工D</label>
+			                        </div>
+			                    </div>
+							</div>
+							<div class="fl cl9 fs24 rightsj"></div>
+							<div class="fl bore6" style="width:200px;height:220px;">
+								<div class="help_box">
+			                        <h5>
+			                        	<label>已选员工</label>
+			                        	<i class="fr fs12 cl9" onclick="clearAll();">全部清空</i>
+			                        </h5>
+			                        <div class="showcont">
+			                        <!-- 显示左侧勾选员工名称 -->
+
+			                        <!-- 显示左侧勾选员工名称 -->
+			                        </div>
+			                    </div>
+							</div>
+						</div>
+						<div class="fl w mt10">
+							<p>覆盖员工人数：      42人</p>
+							<p>正在分配金额：     ￥10,000.0</p>
+							<p>剩余可分配金额：  ￥10,000.0</p>
+						</div>
+					</dd>
+				</dl>
+				<dl class="fl w lh24 mt20 pt05 pb05">
+					<dt class="fl w100">&nbsp;</dt>
+					<dd class="fl">
+						<input type="button" name="" value="提交" class="w140 p10 pl30 pr30 fs14 clf bg009 cursor" onclick="location='distributione.html'">
+					</dd>
+				</dl>
+			</div>
+			<!-- 企业账户信息 -->
+		</div>
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/artDialog/jquery.artDialog.js"></script>
+</body>
+</html>

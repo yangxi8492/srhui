@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>员工资料</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/chosen.css" />
+	<link rel="stylesheet" href="../../static/businessManage/artDialog/skins/default.css">
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="borbe lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>员工管理>员工资料
+			</div>
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="companyinfo clearfix">
+					<dl>
+						<dt><em class="w10 fl clf0">*</em> 所属职级：</dt>
+						<dd>
+							<select name="dept" data-placeholder="高管" class="ad-con-sel w140"> 
+							    <option value="-1"></option>
+							    <option value="高管">高管</option>
+								<option value="普通员工">普通员工</option>
+								<option value="经理">经理</option>
+							</select>
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl clf0">*</em> 员工姓名：</dt>
+						<dd>
+							<input type="text" name="" value="" class="fl w118 inputext inputbox fs12 clc bore6" autocomplete="off">
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl clf0">*</em> 手机号码：</dt>
+						<dd>
+							<input type="text" name="" value="" class="fl w118 inputext inputbox fs12 clc bore6" autocomplete="off">
+							<span class="cl9">（注：为个人登录账号）</span>
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl clf0">*</em> 证件：</dt>
+						<dd>
+							<select name="dept" data-placeholder="居民身份证" class="ad-con-sel w140"> 
+							    <option value="-1"></option>
+								<option value="居民身份证">居民身份证</option>
+								<option value="港澳通行证">港澳通行证</option>
+								<option value="军官证">军官证</option>
+							</select>
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl clf0">*</em> 证件号码：</dt>
+						<dd>
+							<input type="text" name="" value="" class="fl w230 inputext inputbox fs12 clc bore6" autocomplete="off">
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl">&nbsp; </em>性别：</dt>
+						<dd>
+							<input type="radio" name="sex" value=""> 男&nbsp;&nbsp;
+							<input type="radio" name="sex" value=""> 女
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl">&nbsp; </em>出生日期：</dt>
+						<dd>
+							<input type="text" name="" value="" class="fl w118 inputext inputbox fs12 clc bore6" autocomplete="off">
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl">&nbsp; </em>职员邮箱：</dt>
+						<dd>
+							<input type="text" name="" value="" class="fl w230 inputext inputbox fs12 clc bore6" autocomplete="off">
+						</dd>
+					</dl>
+					<dl>
+						<dt><em class="w10 fl">&nbsp; </em>住址：</dt>
+						<dd>
+							<select class="w118 bore6 p05 fl mr05" id="province">
+								<option value="0">选择省</option>
+								<option value="湖北省" >湖北省</option>
+							</select>
+							<select class="w118 bore6 p05 fl mr05" id="city">
+								<option value="">武汉市</option>
+							</select>
+							<select class="w118 bore6 p05 fl mr05" id="area_id" name="area_id">
+								<option value="">硚口区</option>
+							</select>	
+							<input type="text" name="" value="" class="fl w300 inputext inputbox fs12 clc bore6" autocomplete="off">
+						</dd>
+					</dl>
+					<dl class="mt20">
+						<dt>&nbsp;</dt>
+						<dd>
+							<input type="button" name="" value="保存" class="w230 p08 fs14 clf bg009 cursor" onclick="savestaff();">
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hide savebox tc">
+		<div class="fs16 tc">成功导入1名职员资料，发短信通知职员吧！</div>
+		<div class="block tc pt30">
+			<a href="javascript:void(0);" class="clf bg009 bor009 lh18 p05 pl15 pr15 fs15"  onclick="autosend();">自动发短信</a>  
+			<a href="javascript:void(0);" class="ml05 bor009 lh18 p05 pl15 pr15 cl009 bluebtn fs15" onclick="aftersay();">以后再说</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/artDialog/artDialog.source.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/artDialog/plugins/iframeTools.source.js"></script>
+
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/chosen.jquery.js"></script>
+
+
+	<script type="text/javascript">
+		$('.ad-con-sel').chosen();
+		function savestaff(){//提交成功弹窗
+			var throughBox = art.dialog.through;
+			throughBox({
+				title:'提示',padding:10,width:350,height:160,lock:true,id:"savepop",background: '#000',opacity: 0.5,	
+			    content: $(".savebox").html()
+			});
+		}
+		function autosend(){//自动发短信
+			art.dialog({id:'savepop'}).close();
+		}
+		function aftersay(){//以后再说
+			art.dialog({id:'savepop'}).close();
+		}
+	</script>
+</body>
+</html>
