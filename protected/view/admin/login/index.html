@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>登录</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/login.css" />
+</head>
+<body>
+	<div class="header" style="background:#fff;">
+		<img src="../../static/businessManage/images/loginlogo.png">
+	</div>
+	<div class="login">
+		<div class="loginbox tc">
+			<img src="../../static/businessManage/images/loginicon.png">
+			<div class="block mt10 fs18 cl6"></div>
+			<form id="Loginform" action="<{url c='admin/login' a='dologin'}>" method="post">
+			<input type="hidden" name="token" value="<{$token}>" >
+			<div class="block mt20">
+				<ul class="w230 marginauto clearfix logintab">
+					<li>
+						<div class="bore6 clearfix">
+							<div class="fl icon_new lefticonA1"></div>
+							<div class="fl rgtinput h30" style="border-left:solid 1px #e6e6e6;">
+								<input type="text" name="username" id="_username" value="" placeholder="用户名" autocomplete="off" class="inputext inputbox cl9" style="width:176px; background:none;">
+								<span id="_username_msg"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="bore6 clearfix">
+							<div class="fl icon_new lefticonA2"></div>
+							<div class="fl rgtinput h30" style="border-left:solid 1px #e6e6e6;">
+								<input type="password" name="password" id="_loginpassword" placeholder="密码" autocomplete="off" value="" class="inputext inputbox cl9" style="width:176px; background:none;">
+								<span id="_loginpassword_msg"></span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<input type="submit" name="" value="登录" class="fl tc w clf lh20 p05 fs14 bg009 cursor" id="loginbtn">
+					</li>
+					<li style="padding:0; line-height:18px;">
+						<a href="retrievepassword.html" class="fr cl009">忘记密码</a>
+					</li>
+				</ul>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="footer fs14 tc lh24 cl9 p20">
+		Copyright @2015-2026  www.91160.com,All Rights Reserved<br>
+		粤ICP备　09019668号
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+</body>
+</html>

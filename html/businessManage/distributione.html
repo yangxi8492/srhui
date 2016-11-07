@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>福利分配</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+	<link rel="stylesheet" href="../../static/businessManage/artDialog/skins/default.css">
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>福利分配
+			</div>
+			<div class="borb009 h34 subtitle mt10">
+				<a href="javascript:void(0);" class="current">分配资金</a>
+				<a href="">分配健康产品</a>
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<!-- 流程三部曲 -->
+				<ul class="processli mt05 mb20 clf fs12 tc clearfix">
+					<li class="one">①  确认分配</li>
+					<li class="two">②  支付</li>
+					<li>③  分配成功</li>
+				</ul>
+				<ul class="processli mt05 mb20 clf fs12 tc clearfix">
+					<li class="three">①  确认分配</li>
+					<li class="two2">②  支付</li>
+					<li>③  分配成功</li>
+				</ul>
+				<ul class="processli mt05 mb20 clf fs12 tc clearfix">
+					<li class="three">①  确认分配</li>
+					<li class="three">②  支付</li>
+					<li class="three2">③  分配成功</li>
+				</ul>
+				<!-- 流程三部曲 -->
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w80">分配金额：</dt>
+					<dd class="fl">￥8200.00</dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w80">人均福利：</dt>
+					<dd class="fl">￥100.00</dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w80">分配人数：</dt>
+					<dd class="fl">82人</dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10">
+					<dt class="fl w80">&nbsp;</dt>
+					<dd style="margin-left:80px;">
+						<div class="bore6 bgf4 p05 pl15 pr15 staffname clearfix">
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>员工二</span>
+							<span>是法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+							<span>是大法</span>   
+							<span>员工二</span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="fl w lh24 mt20 pt05 pb05">
+					<dt class="fl w80">&nbsp;</dt>
+					<dd class="fl">
+						<input type="button" name="" value="确认分配，下一步" class="p10 pl30 pr30 fs14 clf bg009 cursor" onclick="artconfirms();">
+						<input type="button" name="" value="返回上一步" class="ml10 p10 pl30 pr30 fs14 clf bgcc cursor">
+					</dd>
+				</dl>
+			</div>
+			<!-- 企业账户信息 -->
+		</div>
+	</div>
+	<!-- popupbox -->
+	<div class="fl w tc mt20 lh24 fs14 hide" id="paypassword">
+		<div class="tc">
+			<p class="pt10 pb10 fs16">账户名：深圳市蓝海进出口贸易股份有限公司</p>
+			<p class="pt10 pb10"><input type="text" name="" value="请输入支付密码" class="bore6 tc inputext searchinput clc"></p>
+			<div class="block tc">
+				<div class="tr w230 marginauto">
+					<a href="" class="cl009">忘记密码</a>
+				</div>
+			</div>
+			<p class="pt10 pb10"><input type="button" name="" value="确认分配" class="w230 pt08 pb08 fs15 clf bg009 cursor" onclick="surepay();"></p>
+		</div>
+	</div>
+	<div class="fl w tc mt20 lh24 fs14 hide" id="payok">
+		<div class="payokbox">
+			<dl>
+				<dt>
+					<i class="bigicon bigiconA1"></i>
+				</dt>
+				<dd>
+					<span class="block fs22 cl3">恭喜您，分配成功！！</span>
+					<a href="" class="fs14 cl009">查看账户记录</a>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<!-- popupbox -->
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/artDialog/jquery.artDialog.js"></script>
+	<script type="text/javascript">
+	function artconfirms() {//
+		art.dialog({
+			title:'提示',padding:10,width:530,height:310,lock:true,id:'paybox',fixed:true,opacity:0.3,
+		    content: $("#paypassword").html()
+		});
+	}
+	function surepay(){
+		art.dialog({id:'paybox'}).close();
+		art.dialog({
+			title:'提示',padding:10,width:530,height:240,lock:true,opacity:0.3,
+		    content: $("#payok").html()
+		});
+	}
+	</script>
+</body>
+</html>

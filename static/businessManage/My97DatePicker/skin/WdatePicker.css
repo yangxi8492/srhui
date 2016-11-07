@@ -1,0 +1,11 @@
+.Wdate{ width: 120px;
+	height:20px; line-height: 20px;
+	border:#e6e6e6 1px solid; padding:5px 10px;font-size:13px;color: #333;
+	background:#fff url(../../images/dateicon.gif) no-repeat 120px center;  
+}
+.Wdate::-ms-clear{display:none;}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

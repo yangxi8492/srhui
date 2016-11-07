@@ -1,0 +1,9 @@
+/.settings
+/tests/vendor
+/.buildpath
+/.project
+/.metadata
+/uploadfile
+!/.gitignore
+/protected/config.php
+/ºóÌ¨

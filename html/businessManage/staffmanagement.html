@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>员工管理</title>
+	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/chosen.css" />
+	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
+</head>
+<body class="bgf4">
+	<div class="paddtl">
+		<div class="bgf">
+			<div class="borbe lh22 p10 pl20 pr20 fs14 cl3">
+				<i class="fl titline mt05 mr05"></i>企业账户
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="fl w pt05 pb05">
+					账户名：深圳市蓝海进出品贸易股份有限公司
+				</div>
+				<div class="fl w mt15">
+					<!-- 职级 -->
+					<div class="fl">
+						<select name="dept" data-placeholder="所有职级" class="ad-con-sel w100"> 
+						    <option value="-1"></option>
+						    <option value="职级">职级</option>
+							<option value="高管">高管</option>
+							<option value="经理">经理</option>
+							<option value="普通员工">普通员工</option>
+						</select>
+					</div>
+					<!-- 职级 -->
+					<!-- 是否发短信 -->
+					<div class="fl">
+						<select name="dept" data-placeholder="是否发短信" class="ad-con-sel w100"> 
+						    <option value="-1"></option>
+						    <option value="是否发短信">是否发短信</option>
+							<option value="已发短信">已发短信</option>
+							<option value="未发短信">未发短信</option>
+						</select>
+					</div>
+					<!-- 是否发短信 -->
+
+					<div class="fl ml20 w230 h30 bore6">
+						<input type="button" name="" value="搜索" class="fr searchbtn cl3">
+						<input type="text" name="" value="输入职员姓名、手机号码" class="fl inputext searchinput clc" style="width:168px;" autocomplete="off">
+					</div>
+
+					<a href="addstaff.html" class="fl ml30 bor009 lh20 p05 pl15 pr15 cl009 bluebtn">新增职员</a>
+					<a href="javascript:void(0);" class="fl ml05 bor009 lh20 p05 pl15 pr15 cl009 bluebtn" id="ImportExcel">导出EXCEL模版</a>
+					<input type="file" name="" value="" class="hide">
+					<a href="" class="fl ml05 bor009 lh20 p05 pl15 pr15 cl009 bluebtn">EXCEL导入职员信息</a>
+				</div>
+			</div>
+			<!-- 企业账户信息 -->
+			<div class="borb009 h34 subtitle mt10">
+				<a href="javascript:void(0);" class="current">子账户管理</a>
+				<a href="">导入失败表</a>
+			</div>
+			<div class="p20 pt15 pb15 fs14 clearfix">
+				<div class="fl w pb20 pt05">
+					<a href="" class="fl bore6 lh20 p05 pl15 pr15 cl009 bluebtn">批量设置　高管</a>
+					<a href="" class="fl ml05 bore6 lh20 p05 pl15 pr15 cl009 bluebtn">批量设置　经理</a>
+					<a href="" class="fl ml05 bore6 lh20 p05 pl15 pr15 cl009 bluebtn">批量设置　普通员工</a>
+					<a href="" class="fl ml30 bore6 lh20 p05 pl15 pr15 cl009 bluebtn">批量发送短信  通知员工</a>
+				</div>
+				<table cellspacing="0" cellpadding="0" class="tablebox">
+					<thead>
+						<tr>
+							<th width="8%"><input type="checkbox" name="" value="" autocomplete="off" id="checkAll"> ID</th>
+							<th>职员姓名</th>
+							<th>性别</th>
+							<th>手机号码</th>
+							<th>职级</th>
+							<th>购买次数</th>
+							<th>是否已发短信</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" name="chooseid" value=""  autocomplete="off"> 1</td>
+							<td>王大伟</td>
+							<td>男</td>
+							<td>1521545211</td>
+							<td>经理</td>
+							<td>100</td>
+							<td>已发送</td>
+							<td><a href="javascript:void(0);" class="deletlist cl009">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="chooseid" value=""  autocomplete="off"> 2</td>
+							<td>王大伟</td>
+							<td>男</td>
+							<td>1521545211</td>
+							<td>经理</td>
+							<td>100</td>
+							<td>已发送</td>
+							<td><a href="javascript:void(0);" class="deletlist cl009">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="chooseid" value=""  autocomplete="off"> 3</td>
+							<td>王大伟</td>
+							<td>男</td>
+							<td>1521545211</td>
+							<td>经理</td>
+							<td>100</td>
+							<td>已发送</td>
+							<td><a href="javascript:void(0);" class="deletlist cl009">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="chooseid" value=""  autocomplete="off"> 4</td>
+							<td>王大伟</td>
+							<td>男</td>
+							<td>1521545211</td>
+							<td>经理</td>
+							<td>100</td>
+							<td>已发送</td>
+							<td><a href="javascript:void(0);" class="deletlist cl009">删除</a></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="chooseid" value=""  autocomplete="off"> 5</td>
+							<td>王大伟</td>
+							<td>男</td>
+							<td>1521545211</td>
+							<td>经理</td>
+							<td>100</td>
+							<td>已发送</td>
+							<td><a href="javascript:void(0);" class="deletlist cl009">删除</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- 分页 -->
+				<div class="paper clearfix">
+					<p class="fr">共3页</p>
+					<a href="#"><</a>
+					<a href="#">1</a>
+					<span>2</span> 
+					<a href="#">3</a>
+					<a href="#">></a>
+				</div>
+				<!-- 分页 -->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/base.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/js/chosen.jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#checkAll").on('click',function(){//全选
+				$(this).parents('.tablebox').find('input[name=chooseid]').prop('checked',$(this).prop('checked'));
+			});
+		    $('input[name=chooseid]').click(function(){//一个没选中，全选就不被选中
+		        $('#checkAll').attr('checked',$('input[name=chooseid]:checked').length == $('input[name=chooseid]').length);
+		    });
+		});
+		$('.ad-con-sel').chosen();
+		$(function(){
+			$("#ImportExcel").on('click',function(){//导入excel
+				$(this).next().click();
+			});
+		});
+	</script>
+</body>
+</html>
