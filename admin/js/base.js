@@ -42,9 +42,11 @@ function BombBoxNoBtn(tit, BoxWidth, BoxHeight, ContentURL){
 		width: BoxWidth,
 		height: BoxHeight,
 		content: ContentURL,
+		//href:ContentURL,
 	    closed: true,
 	    modal: true
-	}).dialog('open')
+	}).dialog('open');
+	return dialogBox;
 };
 
 function parentReload(){

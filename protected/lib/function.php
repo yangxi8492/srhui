@@ -1,5 +1,16 @@
 <?php
 
+//将对象转换为数组
+function object_to_array($obj){
+
+    $_arr = is_object($obj) ? get_object_vars($obj) : $obj;
+    foreach ($_arr as $key => $val){
+        $val = (is_array($val) || is_object($val)) ? object_to_array($val) : $val;
+        $arr[$key] = $val;
+    }
+    return $arr;
+}
+
 function dump($var, $exit = false){
     $output = print_r($var, true);
     if(!$GLOBALS['debug'])return error_log(str_replace("\n", '', $output));

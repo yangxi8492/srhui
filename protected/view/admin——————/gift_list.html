@@ -1,0 +1,90 @@
+<{include file="admin/header.html"}>
+	<!-- article -->
+	<div class="article">
+		<div class="mt10 bgf clearfix">
+		<form id="Loginform" action="<{url c='admin/gift' a='list'}>" method="get">
+			<div class="top-search clearfix">
+				<p class="fl">
+					共有 <font class="col-red"><{$sum}></font> 篇文章
+				</p>
+				<select class="fl selectbox ml8" name="cateid">
+					<option value="" selected="">选择栏目</option>
+					<{foreach $arrCate as $key=>$val}>
+					<option value="<{$val.cateid}>" <{if $cateid == $val.cateid }> selected="" <{/if}>><{$val.catename}></option>
+					<{/foreach}>
+				</select>
+				<input type="text" value="<{$keyword}>" name="keyword" value="文章标题关键字" class="fl inputs w170 ml8">
+				
+				<input type="submit" name="submit" value="" class="fl icon search-btn ml8">
+				<a href="javascript:void(0)" class="fl icon addbtn ml8" onclick="openTrack('<{url c='admin/gift' a='add'}>')">添加</a>
+				<a href="#" class="fl icon delbtn ml8">删除</a>
+			</div>
+			</form>
+            <div class="main">
+            	<div class="pad10">
+                	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table trhover table-c">
+                		<thead>
+							<tr>
+								<th width="4%"><input type="checkbox" name="" value="" id="CheckedAll"></th>
+								<th width="5%">ID</th>
+								<th width="19%">文章标题</th>
+								<th width="8%">栏目</th>
+								<th width="8%">点击/评论</th>
+								<th width="12%">发布时间</th>
+								<th width="9%">发布人</th>
+								<th width="10%">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<{foreach $arrArticle as $key=>$val}>
+							<tr>
+								<td><input type="checkbox" name="h-list" value="<{$val.articleid}>"></td>
+								<td><{$val.articleid}></td>
+								<td><{$val.title}></td>
+								<td><{$val.catename}></td>
+								<td><{$val.count_view}> / <{$val.count_comment}></td>
+								<td><{$val.addtime}></td>
+								<td><{$val.user.username}></td>
+								<td>
+								<a href="<{url c='admin/article' a='add' aid=$val.articleid}>" class="del-hoslist">修改</a>
+								<a href="javascript:void(0);" class="del-hoslist" onclick="artconfirms();">删除</a></td>
+							</tr>
+							<{/foreach}>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="12">
+									<div class="fl pageleft">
+										共有
+										<font color="#FF0000">9217</font>
+										条记录
+									</div>
+									<div class="fr pagergt">
+										<{html_entity_decode($pager)}>
+									</div>
+								</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+            </div>
+		</div>
+	</div>
+	<!-- /article -->
+	<script>
+	function openTrack(url) { //头部添加资讯
+		var TopTab=window.parent.$('#index_tabs')
+		TopTab.tabs('close','新增资讯');
+	    TopTab.tabs('add',{title:'新增资讯',content:'<iframe scrolling="auto" frameborder="0"  src='+url+' style="width:100%;height:99.2%;"></iframe>',closable:true });
+	}
+	function artconfirms() {  //删除文章
+	    top.$.messager.confirm('提示','确定要删除文章？',function(r){    
+		    if (r){    
+		        alert('确认删除');    
+		    }    
+		});
+	} 
+</script>
+</body>
+</html>
+

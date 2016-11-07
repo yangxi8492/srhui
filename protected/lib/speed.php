@@ -85,7 +85,7 @@ $controller_obj = new $controller_name();
 $controller_obj->$action_name();
 
 if($controller_obj->_auto_display){
-	$auto_tpl_name = (empty($__module) ? '' : $__module.DS).$__controller.'_'.$__action.'.html';
+	$auto_tpl_name = (empty($__module) ? '' : $__module.DS).$__controller.'/'.$__action.'.html';
 	if(file_exists(APP_DIR.DS.'protected'.DS.'view'.DS.$auto_tpl_name))$controller_obj->display($auto_tpl_name);
 }
 
