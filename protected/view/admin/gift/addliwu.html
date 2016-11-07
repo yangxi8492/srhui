@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/admin/css/global.css">
+	<link rel="stylesheet" type="text/css" href="/admin/css/dialog.css">
+	<script type="text/javascript" src="/admin/js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="/admin/js/base.js"></script>
+</head>
+<body>
+	<!-- article -->
+	<div style="padding:20px 0px 5px 20px;">
+	<input type="text" name='keyword' id='keyword' style="border: 1px solid #e1e1e1;width:200px;height: 20px;"> 
+	<input type="button" id="sbt" value='搜索'>
+	</div>
+	<div class="pad20">
+		<!-- 状态修改记录 -->
+		<table class="table trhover table-c" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr>
+					<th width="60">ID</th>
+					<th width="200">标题</th>
+	                <th width="60">价格</th>
+	                <th width="90">图片</th>
+	                <th width="40">销量</th>
+	                <th width="40">操作</th>
+				</tr>
+			</thead>
+			<tbody  id="result"><tr>
+			
+			</tr>
+			
+			</tbody>
+		</table>
+		<!-- 状态修改记录 -->
+	</div>
+	<!-- /article -->
+	<script>
+	$(function(){
+		var aaa = parent.parent.$('#aaa').val();
+		alert(aaa);
+	})
+$("#sbt").click(function(){
+	var keyword = $.trim($('#keyword').val());
+	if(!keyword){
+		alert('请输入关键词');
+		return false;
+	}
+	var url = "<?php echo url('admin/gift', 'query');?>";
+	$.ajax({
+			url:url,
+			type:"POST",
+			data:{"keyword":keyword},
+			timeout:5000,
+			dataType:"json",
+			success:function(result){
+				$("#result").html(result.str);
+			},
+			error:function(jqXHR, textStatus, errorThrown){   
+                if(textStatus=="timeout"){  
+                    alert("加载超时，请重试");  
+                }  
+            }
+		});
+})
+function surebtn( id ) { 
+    top.$.messager.confirm('提示','确定选择吗？,,',function(r){    
+	    if (r){
+	    	//window.parent.$('#win').getElementById("aaa").value='sffff'; 
+	    	//window.returnValue = 'ssss';//document.getElementById("rname").value;
+	    	//top.parent.setvalue();
+	    	top.$("#aaa").val("test");
+	    	//var val = $("#val_"+id);
+	    	//window.parent.$('#win').setvalue(); 
+	    	
+	    	parent.$('#win').window('close');
+	    	
+		}    
+	});
+} 
+</script>
+</body>
+</html>

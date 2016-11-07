@@ -35,6 +35,7 @@ input[type="text"],input[type="submit"],input[type="button"],textarea {-webkit-a
 .w230{ width: 230px;}
 .w280{ width: 280px;}
 .w300{ width: 300px;}
+.w500{ width: 500px;}
 .w600{ width: 600px;}
 .w100{width: 100px;}
 .w118{width: 118px;}
@@ -45,6 +46,8 @@ input[type="text"],input[type="submit"],input[type="button"],textarea {-webkit-a
 .h30{height: 30px;}
 .h34{height: 34px;}
 .h20{height: 20px;}
+.h300{height: 300px;}
+.h500{height: 500px;}
 .vm{ vertical-align: middle;}
 .fb{font-weight: bold;}
 .fn{font-weight: normal;}
