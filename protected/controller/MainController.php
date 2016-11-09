@@ -4,6 +4,9 @@ class MainController extends BaseController {
 	function actionIndex(){
 		// 连个hello world都木有？
 
+	    $artInfo = new Article();
+	    $data = $artInfo->find( array('articleid'=>100040) );
+	    print_r($data);
 		// 回答：页面自动输出，请看main_index.html
 	}
 	
