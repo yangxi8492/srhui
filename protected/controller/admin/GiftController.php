@@ -17,9 +17,9 @@ class GiftController extends BaseController {
 	        $args[':cateid'] = $cateid;
 	    }
 	    $user = new User_info();
-	    $giftArticle = new Gift_article();
-	    $info = $giftArticle->findAll($args, 'articleid');
-	    $this->sum = $giftArticle->findCount($args);
+	    $Article = new article();
+	    $info = $Article->findAll($args, 'articleid desc', '*', $limit = array($page, $pagesize));
+	    $this->sum = $Article->findCount($args);
 	    $this->pager = show_page( $this->sum, $page, $pagesize);
 	   
 	    foreach ($info as $key=>$val){
@@ -100,7 +100,7 @@ class GiftController extends BaseController {
     	        $data['photo'] = date('Ymd').'/0';  //路径
     	        $data['image'] = $up['desc_file'];  //返回的文件名称
     	    }
-	    }print_r($data);exit;
+	    }
 	    $artInfo = new Article();
 	    $rs = $artInfo->create($data);
 	    if($rs){
