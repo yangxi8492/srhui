@@ -90,10 +90,21 @@ class GiftController extends BaseController {
 	    unset($data['a']);
 	    unset($data['m']);
 	    
+	    if($_FILES['image']['size']){
+    	    $upload = new upload();
+    	    $newFileName = date('Ymd').'/0/'.time().mt_rand(1000, 9999);
+    	    $up = $upload->upImg($_FILES['image'], 'article', $newFileName);
+    	    if($up['state'] < 1 ){
+    	       $str = '图片上传失败';
+    	    }else{
+    	        $data['photo'] = date('Ymd').'/0';  //路径
+    	        $data['image'] = $up['desc_file'];  //返回的文件名称
+    	    }
+	    }print_r($data);exit;
 	    $artInfo = new Article();
 	    $rs = $artInfo->create($data);
 	    if($rs){
-	        msgJump('操作成功', url('admin/gift','add'));return;
+	        msgJump('操作成功,'.$str, url('admin/gift','add'));return;
 	    }
 	    msgJump('操作失败', url('admin/gift','add'));return;
 	}
