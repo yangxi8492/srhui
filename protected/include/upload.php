@@ -214,7 +214,7 @@ class upload
         // 相对路径文档
         $desc_file = $desc_name . $ext;
         // 真实路径
-        $real_file = $up_path .$type.'/'. $desc_file;
+        $real_file = $up_path .$type .'/'. $desc_file;
         // 目录不存在时，创建目录,并去掉“.” 符号，避免上传文件到不可控目录。
         $dir = str_replace(".", '', dirname($real_file));
         if (! file_exists($dir)) {
