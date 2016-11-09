@@ -100,7 +100,7 @@ class GiftController extends BaseController {
     	        $data['photo'] = date('Ymd').'/0';  //路径
     	        $data['image'] = $up['desc_file'];  //返回的文件名称
     	    }
-	    }print_r($data);exit;
+	    }
 	    $artInfo = new Article();
 	    $rs = $artInfo->create($data);
 	    if($rs){
