@@ -5,8 +5,10 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/admin/css/global.css">
 	<link rel="stylesheet" type="text/css" href="/admin/css/dialog.css">
-	<script type="text/javascript" src="/admin/js/jquery-1.8.3.js"></script>
-	<script type="text/javascript" src="/admin/js/base.js"></script>
+
+<script type="text/javascript" src="../../static/businessManage/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../static/businessManage/artDialog/jquery.artDialog.js"></script>
+	<script type="text/javascript" src="./../static/businessManage/artDialog/plugins/iframeTools.source.js"></script>
 </head>
 <body>
 	<!-- article -->
@@ -37,18 +39,14 @@
 	</div>
 	<!-- /article -->
 	<script>
-	$(function(){
-		var aaa = parent.parent.$('#aaa').val();
-		alert(aaa);
-	})
-$("#sbt").click(function(){
-	var keyword = $.trim($('#keyword').val());
-	if(!keyword){
-		alert('请输入关键词');
-		return false;
-	}
-	var url = "<?php echo url('admin/gift', 'query');?>";
-	$.ajax({
+		$("#sbt").click(function(){
+		var keyword = $.trim($('#keyword').val());
+		if(!keyword){
+			alert('请输入关键词');
+			return false;
+		}
+		var url = "<?php echo url('admin/gift', 'query');?>";
+		$.ajax({
 			url:url,
 			type:"POST",
 			data:{"keyword":keyword},
@@ -63,22 +61,19 @@ $("#sbt").click(function(){
                 }  
             }
 		});
-})
-function surebtn( id ) { 
-    top.$.messager.confirm('提示','确定选择吗？,,',function(r){    
-	    if (r){
-	    	//window.parent.$('#win').getElementById("aaa").value='sffff'; 
-	    	//window.returnValue = 'ssss';//document.getElementById("rname").value;
-	    	//top.parent.setvalue();
-	    	top.$("#aaa").val("test");
-	    	//var val = $("#val_"+id);
-	    	//window.parent.$('#win').setvalue(); 
-	    	
-	    	parent.$('#win').window('close');
-	    	
-		}    
-	});
-} 
+	})
+	function surebtn( id ) { 
+			var value = $('#val_'+id).val();
+			return callback(value);
+		
+		//var title = $('#val_'+id).attr('title');
+	 	//var origin = artDialog.open.origin;
+	 	//var liwuObj = origin.document.getElementById('liwu_<?php echo $id;?>');
+	 	//var liwuTitle = origin.document.getElementById('liwu_title_<?php echo $id;?>');
+	 	//liwuObj.value = value;
+	 	//liwuTitle.innerHTML  = title;
+	 	//art.dialog.close();
+	} 
 </script>
 </body>
 </html>

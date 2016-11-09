@@ -112,10 +112,10 @@ function tsXimg($file, $app, $w, $h, $path = '', $c = '0') {
         } else {
             $cpath = 'cache/' . $app . '/' . $path . '/' . $w . '/' . $name;
         }
-
+        
         if (!is_file($cpath)) {
             createFolders('cache/' . $app . '/' . $path . '/' . $w);
-            $dest = 'uploadfile/' . $app . '/' . $file;
+            $dest = 'upload/' . $app . '/' . $file;
             $arrImg = getimagesize($dest);
             if ($arrImg[0] <= $w) {
                 copy($dest, $cpath);
@@ -124,7 +124,7 @@ function tsXimg($file, $app, $w, $h, $path = '', $c = '0') {
             }
         }
 
-        return SITE_URL . $cpath;
+        return APP_DIR . '/'. $cpath;
 
     }
 }

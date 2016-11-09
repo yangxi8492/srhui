@@ -33,6 +33,7 @@ class GiftController extends BaseController {
 	    $this->keyword = $keyword;
 	}
 	function actionaddliwu(){
+	    $this->id = intval(arg('id'));
 	    
 	}
 	
@@ -50,7 +51,12 @@ class GiftController extends BaseController {
 	    $data = object_to_array($resp);
 	    $str = '';
 	    foreach ($data['results']['n_tbk_item'] as $key=>$val){
-	        $str .= '<tr><td>'.$val['num_iid'].'<input type="hidden" id="val_'.$val['num_iid'].'" name="val" value=\''.json_encode($val).'\'></td>
+	        $content = '&lt;img src=&quot;'.$val['pict_url'].'&quot width=400&gt;
+	            <a href="'.$val['item_url'].'" target="_blank">'.$val['title'].'</a>
+	                价格：'.$val['zk_final_price'].' 销量：'.$val['volume'].'
+	                ';
+	        
+	        $str .= '<tr><td>'.$val['num_iid'].'<input type="hidden" title='.$val['title'].' id="val_'.$val['num_iid'].'" name="val" value=\''.$content.'\'></td>
 	            <td><a href="'.$val['item_url'].'" target="_blank">'.$val['title'].'</a></td>
 	            <td>'.$val['zk_final_price'].'</td>
 	            <td><img src="'.$val['pict_url'].'" width=60></td>
@@ -71,6 +77,53 @@ class GiftController extends BaseController {
             $Article = new Article();
     	    $this->strArticle = $Article->getOneArticle($articleid);
         }
+	}
+	
+	function actionSave(){
+	    $data = arg();
+	    $data['content'] = $data['elm1'];
+	    $data['addtime'] = $data['updtime'] = date("Y-m-d H:i:s");
+	    $data['userid'] = $_SESSION['admin']['id'];
+	    $data['randid'] = rand(10000000, 99999999);
+	    unset($data['elm1']);
+	    unset($data['c']);
+	    unset($data['a']);
+	    unset($data['m']);
+	    
+	    if($_FILES['image']['size']){
+    	    $upload = new upload();
+    	    $newFileName = date('Ymd').'/0/'.time().mt_rand(1000, 9999);
+    	    $up = $upload->upImg($_FILES['image'], 'article', $newFileName);
+    	    if($up['state'] < 1 ){
+    	       $str = '图片上传失败';
+    	    }else{
+    	        $data['photo'] = date('Ymd').'/0';  //路径
+    	        $data['image'] = $up['desc_file'];  //返回的文件名称
+    	    }
+	    }print_r($data);exit;
+	    $artInfo = new Article();
+	    $rs = $artInfo->create($data);
+	    if($rs){
+	        msgJump('操作成功,'.$str, url('admin/gift','add'));return;
+	    }
+	    msgJump('操作失败', url('admin/gift','add'));return;
+	}
+	function replace($string,$keyArray,$replacement,$i){
+	    $result='';
+	    if($i<(count($keyArray))){
+	        $strSegArray=explode($keyArray[$i],$string);
+	        foreach ($strSegArray as $index=>$strSeg){
+	            $x=$i+1;
+	            if($index==(count($strSegArray)-1))
+	                $result=$result.replace($strSeg,$keyArray,$replacement,$x);
+	            else
+	                $result=$result.replace($strSeg,$keyArray,$replacement,$x).$replacement[$i];
+	        }
+	        return $result;
+	    }
+	    else{
+	        return $string;
+	    }
 	}
 	
 	function actionEdit(){

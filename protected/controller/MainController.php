@@ -4,6 +4,11 @@ class MainController extends BaseController {
 	function actionIndex(){
 		// 连个hello world都木有？
 
+	    //$artInfo = new Article();
+	   // $data = $artInfo->find( array('articleid'=>100040) );
+	    //print_r($data);
+	    
+ 	   echo tsXimg('20161109/0/14786888443982.jpg','article',290,160,'20161109/0',1);
 		// 回答：页面自动输出，请看main_index.html
 	}
 	
