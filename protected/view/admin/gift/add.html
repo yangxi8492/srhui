@@ -10,6 +10,7 @@
 <body class="bgf4">
 	<div class="paddtl">
 	<form id="Loginform" action="<{url c='admin/gift' a='save'}>" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="articleid" value="<{$strArticle.articleid}>">
 		<div class="bgf">
 			<div class="lh22 p10 pl20 pr20 fs14 cl3">
 				<i class="fl titline mt05 mr05"></i>添加礼物
@@ -40,7 +41,7 @@
 				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">作者 ：</dt>
 					<dd class="fl">
-						<input type="text" name="author" value="<{if $strArticle.author!=''}>{$strArticle.author<{else}>生日汇<{/if}>" class="inputbox fl mr05 w140 bore6" id="PerSet" autocomplete="off">
+						<input type="text" name="author" value="<{if $strArticle.author!=''}><{$strArticle.author}><{else}>生日汇<{/if}>" class="inputbox fl mr05 w140 bore6" id="PerSet" autocomplete="off">
 					</dd>
 				</dl>
 				<dl class="fl w lh24 pt10 pb10 lh30">
@@ -84,7 +85,7 @@
 				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">详细内容：</dt>
 					<dd class="fl">
-						<textarea class="elm1" name="elm1"  class="xheditor w600 h300" rows="" cols=""  autocomplete="off"></textarea>
+						<textarea class="elm1" name="elm1"  class="xheditor w600 h300" rows="" cols=""  autocomplete="off"><{$strArticle.content}></textarea>
 					</dd>
 				</dl>
 			

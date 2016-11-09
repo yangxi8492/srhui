@@ -85,6 +85,8 @@ class GiftController extends BaseController {
 	    $data['addtime'] = $data['updtime'] = date("Y-m-d H:i:s");
 	    $data['userid'] = $_SESSION['admin']['id'];
 	    $data['randid'] = rand(10000000, 99999999);
+	    $articleid = $data['articleid'];
+	    unset($data['articleid']);
 	    unset($data['elm1']);
 	    unset($data['c']);
 	    unset($data['a']);
@@ -104,16 +106,20 @@ class GiftController extends BaseController {
     	    if($up['state'] < 1 ){
     	       $str = '图片上传失败';
     	    }else{
-    	        $data['photo'] = date('Ymd').'/0';  //路径
-    	        $data['image'] = $up['desc_file'];  //返回的文件名称
+    	        $data['path'] = date('Ymd').'/0';  //路径
+    	        $data['photo'] = $up['desc_file'];  //返回的文件名称
     	    }
 	    }
 	    $artInfo = new Article();
-	    $rs = $artInfo->create($data);
+	    if($articleid){
+	        $rs = $artInfo->update(array('articleid'=>$articleid), $data);
+	    }else{
+	       $rs = $artInfo->create($data);
+	    }
 	    if($rs){
 	        msgJump('操作成功,'.$str, url('admin/gift','add'));return;
 	    }
-	    msgJump('操作失败', url('admin/gift','add'));return;
+	    msgJump('操作失败', url('admin/gift','add', array('articleid'=>$articleid)));return;
 	}
 	function replace($string,$keyArray,$replacement,$i){
 	    $result='';
