@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">	
-	<title>福利分配</title>
+	<title></title>
 	<link rel="stylesheet" href="../../static/businessManage/css/reset.css" />
 	<link rel="stylesheet" href="../../static/businessManage/css/css.css" />
 	<link rel="stylesheet" href="../../static/businessManage/artDialog/skins/default.css">
@@ -38,6 +38,12 @@
 					</dd>
 				</dl>
 				<dl class="fl w lh24 pt10 pb10 lh30">
+					<dt class="fl w100">作者 ：</dt>
+					<dd class="fl">
+						<input type="text" name="author" value="<{if $strArticle.author!=''}>{$strArticle.author<{else}>生日汇<{/if}>" class="inputbox fl mr05 w140 bore6" id="PerSet" autocomplete="off">
+					</dd>
+				</dl>
+				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">所属栏目：</dt>
 					<dd class="fl">
 						<select class="w118 bore6 p05 fl mr05" name="cateid">
@@ -57,8 +63,8 @@
 				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">状态：</dt>
 					<dd class="fl">
-						<input type="radio" name="isaudit" value="1" <{if $strArticle.isaudit == 1}>checked <{/if}>> 立即发布
-						<input type="radio" name="isaudit" value="0" <{if $strArticle.isaudit == 0}>checked <{/if}>> 暂不发布
+						<input type="radio" name="isaudit" value="1" <{if $strArticle.isaudit === 1}>checked <{/if}>> 立即发布
+						<input type="radio" name="isaudit" value="0" <{if $strArticle.isaudit === 0}>checked <{/if}>> 暂不发布
 					</dd>
 				</dl>
 				<dl class="fl w lh24 pt10 pb10 lh30">
@@ -68,7 +74,13 @@
 						<input type="radio" name="isrecommend" value="0" <{if $strArticle.isrecommend == 0}>checked <{/if}>> 否
 					</dd>
 				</dl>
-				
+				<dl class="fl w lh24 pt10 pb10 lh30">
+					<dt class="fl w100">浏览/喜欢量 ：</dt>
+					<dd class="fl">
+						<input type="text" name="count_view" value="<{$strArticle.count_view}>" class="inputbox fl mr05 w30 bore6" id="PerSet" autocomplete="off">
+						<input type="text" name="count_love" value="<{$strArticle.count_love}>" class="inputbox fl mr05 w30 bore6" id="PerSet" autocomplete="off">
+					</dd>
+				</dl>
 				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">详细内容：</dt>
 					<dd class="fl">

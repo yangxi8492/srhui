@@ -1,7 +1,7 @@
 <?php
 class GiftController extends BaseController {
 	// 文章列表
-	function actionList(){
+	function actionList(){echo $_SESSION['admin']['id'];
 	    $pagesize = 10;
 	    $page = arg('page', 1);
 	    $cateid = arg('cateid');
@@ -89,6 +89,13 @@ class GiftController extends BaseController {
 	    unset($data['c']);
 	    unset($data['a']);
 	    unset($data['m']);
+	    if(empty($data['title'])){
+	        msgJump('操作失败,标题必填'.$str, url('admin/gift','add'));return;
+	    }
+	    if(empty($data['content'])){
+	        msgJump('操作失败,内容不能为空'.$str, url('admin/gift','add'));return;
+	    }
+	    
 	    
 	    if($_FILES['image']['size']){
     	    $upload = new upload();
