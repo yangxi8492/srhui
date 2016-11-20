@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><{$title}></title>
+	<meta name="keword" content="﻿<{$sitekey}>">
+	<meta name="description" content="<{$sitedesc}>">
+	<link rel="stylesheet" type="text/css" href="/static/style/css.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/iconfont.css">
+</head>
+<body>
+	<{include file="common/header.html"}>
+	<article class="fl w mt50">
+		<div class="w980 autolr">
+			<div class="fl w600">
+				<div class="lh24 fs16 cl3">
+					<a href="/" class="cl3">首页</a> > <a href="<{url c='article' a='zhufu'}>" class="cl3">祝福</a>
+				</div>
+				<div class="pt20 pb20">
+					<!-- <div class="clearfix">
+						<a class="fl avatar" title=""><img src="images/person.jpg" alt=""></a>
+						<div class="doctorgt clearfix" style="line-height:48px;">
+							<span class="fr cl9 fs14">10-20</span>
+							<a href="" class="clf94 fs15">龟龟</a>
+						</div>
+					</div> -->
+					<div class="lh24 cl3 fs15 pb20">
+						<{$data.content}>
+					</div>
+					<div class="pt10 pb10 doctorimgs tc">
+						<img src="">
+					</div>
+					<div class="clearfix lh20 fs12">
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe63e;</i> 赞(<{$data.count_love}>)</a>
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe60d;</i> 查看(<{$data.count_view}>)</a>
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe622;</i> 评论(<{$data.count_comment}>)</a>
+						<span class="fl bgf5 pl5 pr5 mr10 cl9">作者 : <{$data.author}>  &nbsp;&nbsp;日期 : (<{$data.addtime}>)</span>
+					</div>
+				</div>
+				<{foreach $arrRecommend as $k => $item}>
+				<p class="pt10">
+					<a href="" class="cl6"><{$data.content}></a>
+				</p>
+				<{/foreach}>
+				<div class="fs18 lh30 pt20 pb10 borbe0">评论 (3)</div>
+				<{foreach $arrComment as $k => $item}>
+				<div class="pt20 pb10 borbea">
+					<a class="fl avatar" title=""><img src="<{$item.user.face}>" alt=""></a>
+					<div class="doctorgt clearfix">
+						<p class="lh24">
+							<span class="fr fs12"><{$k+1}>楼</span>
+							<a href="javascript:;" class="clf94"><{$item.user.username}></a> 
+							<span class="fs12 cl9"><{$item.addtime}></span>
+						</p>
+						<p class="mt5 lh24 fs15">
+							<{$item.content}>
+						</p>
+						<p>
+							<a href="javascript:;" class="fr mr10 fs12 cl9"><i class="iconfont">&#xe63e;</i> 赞(<em><{$item.count_love}></em>)</a>
+						</p>
+					</div>
+				</div>
+				<{/foreach}>
+			</div>
+			<div class="fr w310">
+				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
+				<ul class="d-rgt-list clearfix">
+					<{foreach $liwu as $k => $item}>
+					<li>
+						<a href="<{url c='article' a='show' id=$item.articleid}>">
+							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
+							<p>
+								<{$item.title}>
+							</p>
+						</a>
+					</li>
+					<{/foreach}>
+				</ul>
+				<a href=""><img src="images/p01.jpg" class="fl w"></a>
+			</div>
+		</div>
+	</article>
+	<{include file="common/footer.html"}>
+	<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/base.js"></script>
+
+</body>
+</html>

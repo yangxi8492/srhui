@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><{$title}></title>
+	<meta name="keword" content="﻿<{$sitekey}>">
+	<meta name="description" content="<{$sitedesc}>">
+	<link rel="stylesheet" type="text/css" href="/static/style/css.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/iconfont.css">
+</head>
+<body>
+	<{include file="common/header.html"}>
+	<article class="fl w mt50">
+		<div class="w980 autolr">
+			<div class="fl greetleft">
+				<h3 class="fs16 lh30">祝福语</h3>
+				<div class="greetcate mt10 clearfix">
+					<span class="fl mr5">分类:</span>
+					<div class="fl rlist">
+						<i class="more hide">更多</i>
+						<p>
+							<a href="" class="cur">全部</a>
+							<a href="">春节</a>
+							<a href="">情人节</a>
+							<a href="">元宵节</a>
+							<a href="">生日</a>
+							<a href="">结婚</a>
+							<a href="">妇女节</a>
+							<a href="">愚人节</a>
+							<a href="">母亲节</a>
+							<a href="">父亲节</a>
+							<a href="">儿童节</a>
+						</p>
+					</div>
+				</div>
+				<div class="mt20 fs12 cl6 ">
+					<div class="mt20">
+						<{foreach $cehua as $k => $item}>
+						<div class="mt10 borbe0 pt10 pb10">
+							<a href="<{url c='article' a='show' id=$item.articleid}>">
+							<p class="lh24 cl3 fs15">
+								<{$item.content}>
+							</p></a>
+							<div class="mt10 fs14 clearfix lh24">
+								<a href="" class="fl cl9 mr15"><i class="iconfont">&#xe63e;</i> 赞(<{$item.count_love}>)</a>
+								<a href="" class="fl cl9 mr15"><i class="iconfont">&#xe60d;</i> 收藏(<{$item.count_view}>)</a>
+								<a href="" class="fl cl9 mr15"><i class="iconfont">&#xe622;</i> 评论(<{$item.count_comment}>)</a>
+								<p class="fl cl9 ecodeimg">
+									<span>[二维码]</span>
+									<i><img src="images/detail2.jpg"></i>
+								</p>
+							</div>
+						</div>
+						<{/foreach}>
+						<div class="mt30">
+							<div class="pager">
+								<{html_entity_decode($pager)}>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fr w310">
+				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
+				<ul class="d-rgt-list clearfix">
+					<{foreach $liwu as $k => $item}>
+					<li>
+						<a href="<{url c='article' a='show' id=$item.articleid}>">
+							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
+							<p>
+								<{$item.title}>
+							</p>
+						</a>
+					</li>
+					<{/foreach}>
+				</ul>
+				<a href=""><img src="/static/images/p01.jpg" class="fl w"></a>
+			</div>
+		</div>
+	</article>
+	<{include file="common/footer.html"}>
+	<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/base.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".more").on('click',function(){
+				var ddHeight=$(this).next('p').height();
+				if($(this).hasClass("down")){
+					$(this).parent().animate({height:"25px"});
+					$(this).removeClass("down").html("更多");
+				}else{
+					$(this).parent().animate({height:ddHeight},"normal");
+					$(this).addClass("down").html("收起");
+				};
+			});
+
+			$(".rlist").each(function(){
+				var height=$(this).height();
+				if(height>31){
+					$(this).find(".more").show();
+				}
+			});
+		})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><{$title}></title>
+	<meta name="keword" content="﻿<{$sitekey}>">
+	<meta name="description" content="<{$sitedesc}>">
+	<link rel="stylesheet" type="text/css" href="/static/style/css.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/iconfont.css">
+</head>
+<body>
+	<{include file="common/header.html"}>
+	<article class="fl w mt10">
+		<div class="w980 autolr mt20 clearfix">
+			<div class="fl w700">
+				<div class="lh24 fs16 cl3">
+					<a href="/" class="cl3">首页</a> > 策划
+				</div>
+				<ul class="newlist pb20 clearfix">
+					<{foreach $cehua as $k => $item}>
+					<li>
+						<img src="<{tsXimg($item.photo,'article',190,140,$item.path,1)}>" class="fl w190 h140 bsc brno bpc">
+						<div class="fr w480 lh18 cl9">
+							<a href="<{url c='article' a='show' aid=$item.articleid}>" class="newtitle"><{$item.title}></a>
+							<p class="fl mt20">
+								<{$item.description}>
+							</p>
+						</div>
+					</li>
+					<{/foreach}>
+				</ul>
+				<div class="pager">
+					<{html_entity_decode($pager)}>
+				</div>
+			</div>
+			<div class="fr w260">
+				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
+				<ul class="d-rgt-list clearfix">
+					<{foreach $liwu as $k => $item}>
+					<li>
+						<a href="">
+							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
+							<p>
+								<{$item.title}>
+							</p>
+						</a>
+					</li>
+					<{/foreach}>
+				</ul>
+				<a href=""><img src="/static/images/p01.jpg" class="fl w"></a>
+			</div>
+		</div>
+	</article>
+	<{include file="common/footer.html"}>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/base.js"></script>
+
+</body>
+</html>

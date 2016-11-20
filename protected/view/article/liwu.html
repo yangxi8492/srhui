@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><{$title}></title>
+	<meta name="keword" content="﻿<{$sitekey}>">
+	<meta name="description" content="<{$sitedesc}>">
+	<link rel="stylesheet" type="text/css" href="/static/style/css.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/swiper.css">
+</head>
+<body>
+	<{include file="common/header.html"}>
+	<article class="fl w mt10">
+		<div class="w980 autolr">
+			<div class="category mt30">
+				<ul>
+					<li>
+						<span>赠送对象：</span>
+						<a href="">全部</a>
+						<a href="" class="cur">自己</a>
+						<a href="">男票</a>
+						<a href="">女票</a>
+						<a href="">闺蜜</a>
+						<a href="">基友</a>
+						<a href="">爸爸妈妈</a>
+						<a href="">小朋友</a>
+						<a href="">同事</a>
+					</li>
+					<li>
+						<span>赠送场合：</span>
+						<a href="">全部</a>
+						<a href="" class="cur">新年</a>
+						<a href="">生日</a>
+						<a href="">情人节</a>
+						<a href="">纪念日</a>
+						<a href="">结婚</a>
+						<a href="">感谢</a>
+						<a href="">乔迁</a>
+						<a href="">圣诞节</a>
+					</li>
+					<li>
+						<span>Ta的个性：</span>
+						<a href="">全部</a>
+						<a href="" class="cur">手工</a>
+						<a href="">萌物</a>
+						<a href="">吃货</a>
+					</li>
+				</ul>
+			</div>
+			<ul class="product-list mt20 clearfix">
+				<{foreach $liwu as $k => $item}>
+				<li>
+					<a href="<{url c='article' a='show' aid=$item.articleid}>">
+						<div class="h140"><img src="<{tsXimg($item.photo,'article',310,140,$item.path,1)}>" alt='<{$item.title}>' class='w310 h140 boradius-lr6'></div>
+						<div class="p15">
+							<h2 class="lh28 pb5 overhide fs16 cl3"><{$item.title}></h2>
+							<p class="h60 pt5 lh20 fs14 cl9 cf">
+								<{$item.description}>
+							</p>
+							<div class="mt50 cl6">
+								<span class="mr10"><i class="iconfont clf94">&#xe616;</i> <{$item.count_love}></span>
+								<span class="mr10"><i class="iconfont clf94">&#xe622;</i> <{$item.count_comment}></span>
+								<span><i class="iconfont clf94">&#xe630;</i> <{$item.count_view}></span>
+							</div>
+						</div>
+					</a>
+				</li>
+				<{/foreach}>
+			</ul>
+			<div class="pager">
+				<{html_entity_decode($pager)}>
+			</div>
+		</div>
+	</article>
+	<{include file="common/footer.html"}>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/base.js"></script>
+</body>
+</html>
