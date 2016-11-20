@@ -57,7 +57,6 @@
 <body class="easyui-layout">
 <!-- north区域 -->
 <div data-options="region:'north'" class="header">
-	<img src="images/logo.png">
 	<p>您好！<{$_SESSION.admin.username}> |  <a href="#">修改密码</a> | <a href="<{url c='admin/login' a='outlogin'}>">退出</a></p>
 </div>
 <!-- /north区域 -->
@@ -67,13 +66,33 @@
 	<!-- 左侧center -->
 	<div data-options="region:'center'" border="false">
 		<div id="firstpane" class="menu_list">
-			
+            <p class="menu_head">用户管理</p>
+            <div class="menu_body">
+                <a href="javascript:void(0)" onclick="addTab('用户列表','<?php echo url( 'admin/article', 'list', array());?>')" >用户列表</a>
+            </div>
+            <p class="menu_head">分享管理</p>
+            <div class="menu_body">
+                <a href="javascript:void(0)" onclick="addTab('分享列表','<?php echo url( 'admin/article', 'list', array());?>')" >分享列表</a>
+                <a href="javascript:void(0)" onclick="addTab('新增分享','<{url c='admin/article' a='add'}>')" >新增分享</a>
+            </div>
+            <p class="menu_head">祝福管理</p>
+            <div class="menu_body">
+                <a href="javascript:void(0)" onclick="addTab('祝福列表','<{url c='admin/article' a='list'}>')" >祝福列表</a>
+                <a href="javascript:void(0)" onclick="addTab('新增祝福','<{url c='admin/article' a='add'}>')" >新增祝福</a>
+            </div>
 			<p class="menu_head">资讯管理</p>
 			<div class="menu_body">
 				<a href="javascript:void(0)" onclick="addTab('资讯列表','<{url c='admin/article' a='list'}>')" >资讯列表</a>
 				<a href="javascript:void(0)" onclick="addTab('新增资讯','<{url c='admin/article' a='add'}>')" >新增资讯</a>
 			</div>
-
+            <p class="menu_head">评论管理</p>
+            <div class="menu_body">
+                <a href="javascript:void(0)" onclick="addTab('评论列表','<{url c='admin/article' a='list'}>')" >评论列表</a>
+            </div>
+            <p class="menu_head">分类管理</p>
+            <div class="menu_body">
+                <a href="javascript:void(0)" onclick="addTab('评论列表','<{url c='admin/article' a='list'}>')" >分类列表</a>
+            </div>
 			<p class="menu_head">礼物管理</p>
 			<div class="menu_body">
 				<a href="javascript:void(0)" onclick="addTab('礼物列表','<{url c='admin/gift' a='list'}>')" >礼物列表</a>
