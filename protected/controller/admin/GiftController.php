@@ -119,7 +119,7 @@ class GiftController extends BaseController {
 	    if($rs){
 	        msgJump('操作成功,'.$str, url('admin/gift','add'));return;
 	    }
-	    msgJump('操作失败', url('admin/gift','add', array('articleid'=>$articleid)));return;
+	    msgJump('操作失败', url('admin/gift','add', array('aid'=>$articleid)));return;
 	}
 	function replace($string,$keyArray,$replacement,$i){
 	    $result='';

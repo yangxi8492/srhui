@@ -22,10 +22,10 @@ class User_info extends Model{
 	        if($strUser['face'] && $strUser['path']){
 	            $strUser['face'] = tsXimg($strUser['face'],'user',120,120,$strUser['path'],1);
 	        }elseif($strUser['face'] && $strUser['path']==''){
-	            $strUser['face']	= SITE_URL.'i/images/'.$strUser['face'];
+	            $strUser['face']	= '/i/images/'.$strUser['face'];
 	        }else{
 	            //没有头像
-	            $strUser['face']	= SITE_URL.'i/images/user_large.jpg';
+	            $strUser['face']	= '/i/images/user_large.jpg';
 	        }
 	        //$strUser['rolename'] = $this->getRole($strUser['allscore']);
 	    }else{

@@ -441,7 +441,7 @@ function page($count,$page,$page_size)
         }
         for($i=$init;$i<=$max_p;$i++)
         {
-            if($i==$page){$navs.="<span>".$i.'</span>';}
+            if($i==$page){$navs.="<span class='cpb'>".$i.'</span>';}
             else {$navs.=" <a href=\"".$url."page=".$i."\">".$i."</a>";}
         }
         if($page!=$pages)

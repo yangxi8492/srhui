@@ -2,14 +2,28 @@
 class MainController extends BaseController {
 	// 首页
 	function actionIndex(){
-		// 连个hello world都木有？
-
-	    //$artInfo = new Article();
-	   // $data = $artInfo->find( array('articleid'=>100040) );
-	    //print_r($data);
+		$t = arg('t', 'new');
+	    $article = new Article();
+	    $articleCate = new Article_cate();
 	    
- 	   echo tsXimg('20161109/0/14786888443982.jpg','article',290,160,'20161109/0',1);
-		// 回答：页面自动输出，请看main_index.html
+	    $fields = 'articleid,cateid,title,description,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
+	    //礼物
+ 	    $conditions['cateid'] = 2;
+	    $conditions['isrecommend'] = 1;
+	    $limit = array(1, 30);
+	    $liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    
+	    //策划
+	    $conditions['cateid'] = 1;
+	    $limit = array(1, 6);
+	    $cehua = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+
+	    $this->liwu = $liwu;
+	    $this->cehua = $cehua;
+	    // SEO优化
+	    $this->title = '生日汇 - 生日礼物和策划指南';
+	    $this->sitekey = '生日会,生日礼物,生日策划,生日祝福,过生日,生日汇';
+	    $this->sitedesc = '生日汇,一个专门从是生日策划,生日祝福,生日礼物的网站.';
 	}
 	
 	// 接收提交表单
