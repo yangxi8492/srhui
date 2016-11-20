@@ -48,7 +48,7 @@ $domain = array(
 				'MYSQL_PORT' => '3306',
 				'MYSQL_USER' => 'root',
 				'MYSQL_DB'   => 'srhui',
-				'MYSQL_PASS' => '123456789',
+				'MYSQL_PASS' => '',
 				'MYSQL_CHARSET' => 'utf8',
 
 		),
