@@ -7,7 +7,7 @@
 </head>
 <body>
 <div style="visibility:hidden;" >
- <a data-type="0" biz-itemid="540392296604" data-style="2"  data-tmpl="230x312" style="visibility:hidden;"></a>
+ <a data-type="0" biz-itemid="<{$id}>" data-style="2"  data-tmpl="230x312" style="visibility:hidden;"></a>
 </div>
 <script type="text/javascript">
     (function(win,doc){
@@ -28,7 +28,7 @@
     })(window,document);
 </script>
 <script language="javascript">
-var itemUrl = 'http://detail.tmall.com/item.htm?id=540392296604';
+var itemUrl = 'http://detail.tmall.com/item.htm?id=<{$id}>';
 var url='';
 var timer;
 function get_et()
@@ -133,7 +133,7 @@ var wt = '0';
 var ti = '625';
 var tl = '230x45';
 var rd = '1';
-var ct = encodeURIComponent('itemid=540392296604');
+var ct = encodeURIComponent('itemid=<{$id}>');
 var st = '2';
 var rf = encodeURIComponent(document.URL);
 var et = get_et();

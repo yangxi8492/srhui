@@ -2,38 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>详情</title>
-	<link rel="stylesheet" type="text/css" href="style/css.css">
-	<link rel="stylesheet" type="text/css" href="style/iconfont.css">
+	<title><{$title}></title>
+	<meta name="keword" content="﻿<{$sitekey}>">
+	<meta name="description" content="<{$sitedesc}>">
+	<link rel="stylesheet" type="text/css" href="/static/style/css.css">
+	<link rel="stylesheet" type="text/css" href="/static/style/iconfont.css">
 </head>
 <body>
-	<header>
-		<div class="w980 autolr clearfix">
-			<a href="" class="fr btn-login">
-				登录 / 注册
-			</a>
-			<a href="" class="fl"><img src="images/logo.gif"></a>
-			<form class="fl searchbox" onsubmit="return false;">
-				<input type="text" id="search-input" placeholder="搜索礼物、攻略">
-				<label for="search-input">搜索</label>
-				<i></i>
-			</form>
-		</div>
-	</header>
-	<nav>
-		<ul id="nav">
-            <li class="mainlevel"><a href="index.html">首页</a></li>
-            <li class="mainlevel"><a href="">分享</a></li>
-            <li class="mainlevel"><a href="list.html">礼物</a></li>
-            <li class="mainlevel"><a href="" class="subm">祝福</a> 
-            	<ul>
-                    <li><a href="" >祝福1</a></li>
-                    <li><a href="" >祝福2</a></li>
-                </ul>
-            </li>
-            <li class="mainlevel"><a href="news.html">资讯</a> </li>
-        </ul>
-	</nav>
+	<{include file="common/header.html"}>
 	<article class="fl w mt50">
 		<div class="w980 autolr">
 			<div class="fr w310">
@@ -79,38 +55,9 @@
 					</div>
 					<div class="fr cl9">11月9日 星期五</div>
 				</div>
-				<div class="mt20 pt15 fs18 lh30 cl4">
-					想做一个三百六十度没有死角的美少女，我们都需要什么呢？精心搭配的服装，美丽的妆容，这些都让我们绞尽脑汁，可往往仔细体味，这些华美之下却总少了那么一样让你惊艳全场的重要元素……究竟是什么呢？大约是属于你独一无二的香气吧。一款适合自己的香水为你带来的并不仅仅是优雅的馥郁，还有会让人一见倾心的气质。本期，小编就为大家带来几款美貌的香水，让爱你的人跟着十一月的香气，遇见你。
-				</div>
+				
 				<div class="lh30 fs18 cl4 pro-detail">
-					<div class="clearfix">
-						<h3 class="pt10 pb10 fw7 fs18">1、维维尼奥·女士香水</h3>
-						<p>
-							【必败理由】本期平价香水中的颜值担当，完全符合小女孩童年时对于童话的各种幻想。晶莹通透的瓶身+pikapika的坠饰，光看外表就想把它收入囊中了好吗？紫色款是法国精选的鸢尾香型，蓝色则是白莲香与玫瑰香的结合体，姑娘们可以按自己的偏好选择哦~ 
-						</p>
-						<img src="images/detail1.jpg">
-						<div class="fl w pt15 pb15 lh18 clearfix">
-							<div class="fl detail-leftline">
-								<i class="block clf94 fs16">￥188.00</i>
-								<em class="block fs12 cl9">23523525人喜欢</em>
-							</div>
-							<a href="" class="fr click-detail">查看详情</a>
-						</div>
-					</div>
-					<div class="clearfix">
-						<h3 class="pt10 pb10 fw7 fs18">2、冰希黎·娇之真我*50ML</h3>
-						<p>
-							【必败理由】充满温暖、女人味以及智慧。柑橘和黑醋栗花蕾的果香前调，地中海树兰花为香味的核心，配以皇家风范的依兰精油，尽显优雅与从容，小苍兰强化香气并凸显浓厚的紫檀基调，就像第二层肌肤一般，倍感润泽，令人难忘~
-						</p>
-						<img src="images/detail2.jpg">
-						<div class="fl w pt15 pb15 lh18 clearfix">
-							<div class="fl detail-leftline">
-								<i class="block clf94 fs16">￥206.00</i>
-								<em class="block fs12 cl9">454人喜欢</em>
-							</div>
-							<a href="" class="fr click-detail">查看详情</a>
-						</div>
-					</div>
+					<{html_entity_decode($data.content)}>
 				</div>
 				<div class="mt20 pt5 pb5 clearfix">
 					<div class="fr">
@@ -202,11 +149,9 @@
 			</div>
 		</div>
 	</article>
-	<footer class="fl w">
-		© 2014 - 2016 www.com 科技有限公司 电信与信息服务业务经营许可证2651162号 粤ICP备2651162号-1 <br>首页 | 商务合作 | 关于我们    电话：010-57510218
-	</footer>
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/base.js"></script>
+	<{include file="common/footer.html"}>
+<script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/static/js/base.js"></script>
 
 </body>
 </html>

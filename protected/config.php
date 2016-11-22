@@ -5,7 +5,7 @@ date_default_timezone_set('PRC');
 
 $config = array(
 	'rewrite' => array(
-	    
+	    'item/go/<id>' => 'item/go'
 	    
 	    /**'u/<uid>' => 'user/index',//用户
 	    'sign_in' => 'user/login',
@@ -48,7 +48,7 @@ $domain = array(
 				'MYSQL_PORT' => '3306',
 				'MYSQL_USER' => 'root',
 				'MYSQL_DB'   => 'srhui',
-				'MYSQL_PASS' => '',
+				'MYSQL_PASS' => '123456789',
 				'MYSQL_CHARSET' => 'utf8',
 
 		),

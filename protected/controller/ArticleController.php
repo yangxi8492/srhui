@@ -119,6 +119,58 @@ class ArticleController extends BaseController {
 	    }
 	}
 	
+	function actionDetail(){
+	    $id = intval(arg('aid'));
+	    if(empty($id)){
+	        msgJump('参数错误', '/');
+	    }
+	    $article = new Article();
+	    $userInfo = new User_info();
+	     
+	    $conditions['articleid'] = $id;
+	    $conditions['isaudit'] = 1;
+	    $conditions['cateid'] = 2;
+	    $data = $article->find( $conditions );
+	    //$data['user'] = $userInfo->getOneUser($data['userid']);
+	     
+	    $sort = 'articleid desc';
+	    $conditions['isrecommend'] = 1;
+	    unset($conditions['articleid']);
+	    $this->arrRecommend = $article->findAll($conditions, $sort, '*', array(1, 5));
+	     
+	    // 获取评论
+	    $ArticleComment = new Article_comment();
+	    $arrComments = $ArticleComment->findAll ( array (
+	        'articleid' => $id
+	    ), 'addtime desc');
+	
+	    foreach ( $arrComments as $key => $item ) {
+	        $arrComment [] = $item;
+	        $arrComment[$key]['content'] = tsDecode($item['content']);
+	        $arrComment[$key]['user'] = $userInfo->getOneUser ( $item ['userid'] );
+	    }
+	     
+	    //礼物
+	    $conditions['cateid'] = 2;
+	    $conditions['isrecommend'] = 1;
+	    $limit = array(1, 5);
+	    $this->liwu = $article->findAll($conditions, 'articleid desc', '*', $limit);
+	     
+	    // 统计查看次数
+	    $article->update ( array (
+	        'articleid' => $data ['articleid']
+	    ), array (
+	        'count_view' => $data ['count_view'] + 1
+	    ) );
+	     
+	    $this->data = $data;
+	    $this->arrComment = $arrComment;
+	    $this->title = $data['title'].' - 生日祝福 - 生日汇';
+	    $this->sitekey = $data['keyword'].',生日汇';
+	    $this->sitedesc = $data['content'];
+	     
+	}
+	
 	function actionShow(){
 	    $id = intval(arg('id'));
 	    if(empty($id)){

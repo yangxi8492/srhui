@@ -20,25 +20,19 @@
 			</div>
 			<div class="p20 pt15 pb15 fs14 clearfix">
 				<div class="fl w mt10 mb15">
-					<!-- 类型 -->
-					<div class="fl">
-						<select name="dept" data-placeholder="类型" class="ad-con-sel"> 
-						    <option value="-1"></option>
-						    <option value="类型">类型</option>
-						</select>
-					</div>
-					<!-- 类型 -->
+				<form id="Loginform" action="<{url c='admin/article' a='liwu'}>" method="post" >
 					<!-- 时间 -->
 					<span class="fl lh30 mr10 ml30">时间</span>
-					<input type="text" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})" />
+					<input type="text" name="begin_time" value="<{$begin_time}>" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" />
 					<span class="fl clc m05">— </span>
-					<input type="text" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})"  />
+					<input type="text" name="end_time" value="<{$end_time}>" class="fl Wdate bore6" autocomplete="off" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"  />
 					<!-- 时间 -->
 
 					<div class="fl ml30 w280 h30 bore6">
-						<input type="button" name="" value="搜索" class="fr searchbtn cl3">
-						<input type="text" name="" value="输入消费流水号" class="fl inputext searchinput clc" autocomplete="off">
+						<input type="submit" name="" value="搜索" class="fr searchbtn cl3">
+						<input type="text" name="keyword" value="<{if $keyword!=''}><{$keyword}> <{else}>输入关键词<{/if}>" class="fl inputext searchinput clc" autocomplete="off">
 					</div>
+					</form>
 				</div>
 				<div class="block tr lh24 pt05 pr05 pb10">共24笔，金额2345.00元</div>
 				<table cellspacing="0" cellpadding="0" class="tablebox">
@@ -60,12 +54,12 @@
 								<td><input type="checkbox" name="h-list" value="<{$val.articleid}>"></td>
 								<td><{$val.articleid}></td>
 								<td><{$val.title}></td>
-								<td><{$val.catename}></td>
+								<td>礼物</td>
 								<td><{$val.count_view}> / <{$val.count_comment}></td>
 								<td><{$val.addtime}></td>
 								<td><{$val.user.username}></td>
 								<td>
-								<a href="<{url c='admin/gift' a='add' aid=$val.articleid}>" class="del-hoslist">修改</a>
+								<a href="<{url c='admin/article' a='add' aid=$val.articleid}>" class="del-hoslist">修改</a>
 								<a href="javascript:void(0);" class="del-hoslist" onclick="artconfirms();">删除</a></td>
 							</tr>
 							<{/foreach}>
