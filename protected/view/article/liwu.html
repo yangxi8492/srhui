@@ -17,34 +17,35 @@
 				<ul>
 					<li>
 						<span>赠送对象：</span>
-						<a href="">全部</a>
-						<a href="" class="cur">自己</a>
-						<a href="">男票</a>
-						<a href="">女票</a>
-						<a href="">闺蜜</a>
-						<a href="">基友</a>
-						<a href="">爸爸妈妈</a>
-						<a href="">小朋友</a>
-						<a href="">同事</a>
-					</li>
-					<li>
-						<span>赠送场合：</span>
-						<a href="">全部</a>
-						<a href="" class="cur">新年</a>
-						<a href="">生日</a>
-						<a href="">情人节</a>
-						<a href="">纪念日</a>
-						<a href="">结婚</a>
-						<a href="">感谢</a>
-						<a href="">乔迁</a>
-						<a href="">圣诞节</a>
+						<{if $gid}>
+						<a href="<{url c='article' a='liwu' gid=$gid}>" <{if $cid == ''}>class="cur"<{/if}>>全部</a>
+						<{else}>
+						<a href="<{url c='article' a='liwu'}>" <{if $cid == ''}>class="cur"<{/if}>>全部</a>
+						<{/if}>
+						<a href="<{url c='article' a='liwu' cid='5' gid=$gid}>" <{if $cid == 5}>class="cur"<{/if}>>自己</a>
+						<a href="<{url c='article' a='liwu' cid='6' gid=$gid}>" <{if $cid == 6}>class="cur"<{/if}>>男票</a>
+						<a href="<{url c='article' a='liwu' cid='7' gid=$gid}>" <{if $cid == 7}>class="cur"<{/if}>>女票</a>
+						<a href="<{url c='article' a='liwu' cid='8' gid=$gid}>" <{if $cid == 8}>class="cur"<{/if}>>闺蜜</a>
+						<a href="<{url c='article' a='liwu' cid='9' gid=$gid}>" <{if $cid == 9}>class="cur"<{/if}>>基友</a>
+						<a href="<{url c='article' a='liwu' cid='10' gid=$gid}>" <{if $cid == 10}>class="cur"<{/if}>>同事</a>
+						<a href="<{url c='article' a='liwu' cid='11' gid=$gid}>" <{if $cid == 11}>class="cur"<{/if}>>父母</a>
+						<a href="<{url c='article' a='liwu' cid='12' gid=$gid}>" <{if $cid == 12}>class="cur"<{/if}>>小朋友</a>
 					</li>
 					<li>
 						<span>Ta的个性：</span>
-						<a href="">全部</a>
-						<a href="" class="cur">手工</a>
-						<a href="">萌物</a>
-						<a href="">吃货</a>
+						<{if $cid}>
+						<a href="<{url c='article' a='liwu' cid=$cid}>" <{if $gid == ''}>class="cur"<{/if}>>全部</a>
+						<{else}>
+						<a href="<{url c='article' a='liwu'}>" <{if $gid == ''}>class="cur"<{/if}>>全部</a>
+						<{/if}>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='13'}>" <{if $gid == 13}>class="cur"<{/if}>>美物</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='14'}>" <{if $gid == 14}>class="cur"<{/if}>>手工</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='15'}>" <{if $gid == 15}>class="cur"<{/if}>>吃货</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='16'}>" <{if $gid == 16}>class="cur"<{/if}>>萌萌哒</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='17'}>" <{if $gid == 17}>class="cur"<{/if}>>小清新</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='18'}>" <{if $gid == 18}>class="cur"<{/if}>>动漫迷</a>
+						<a href="<{url c='article' a='liwu' cid=$cid gid='19'}>" <{if $gid == 19}>class="cur"<{/if}>>科技范</a>
+						
 					</li>
 				</ul>
 			</div>

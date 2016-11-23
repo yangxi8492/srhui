@@ -10,53 +10,20 @@
 </head>
 <body>
 	<{include file="common/header.html"}>
-	<article class="fl w mt50">
+	<article class="fl w mt30">
 		<div class="w980 autolr">
-			<div class="fr w310">
-				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
-				<ul class="d-rgt-list clearfix">
-					<li>
-						<a href="">
-							<span class="bsc brno bpc" style="background-image:url(images/detail1.jpg)"></span>
-							<p>
-								想做一个三百六十度没有死角的美少女，我们都需要什么呢？精心搭配的服装，美丽的妆容
-							</p>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="bsc brno bpc" style="background-image:url(images/detail0.jpg)"></span>
-							<p>
-								丽的妆容，这些都让我们绞尽脑汁，可往往仔细体味，这些华美之下却总少了那么一样让你惊艳全场的重要元素
-							</p>
-						</a>
-					</li>
-					<li>
-						<a href="">
-							<span class="bsc brno bpc" style="background-image:url(images/detail2.jpg)"></span>
-							<p>
-								脑汁，可往往仔细体味，这些华美之下却总少了那么一样让你惊艳全场的重要元素
-							</p>
-						</a>
-					</li>
-				</ul>
-				<a href=""><img src="images/p01.jpg" class="fl w"></a>
-			</div>
 			<div class="fl w600">
-				<div class="clearfix">
-					<img src="images/detail0.jpg" class="fl w" height="270">
-				</div>
-				<div class="mt10 pt10 pb10 lh28 fs26 cl3">送她口红，女人一生相伴的朋友</div>
+				<h1 class="lh28 fs26 cl3"><{$data.title}></h1>
 				<div class="mt20 borbe0 pt5 pb5 clearfix">
 					<div class="fl cl6">
-						<span class="mr10"><i class="iconfont clf94">&#xe616;</i> 511213</span>
-						<span class="mr10"><i class="iconfont clf94">&#xe622;</i> 1211</span>
-						<span><i class="iconfont clf94">&#xe630;</i> 12311</span>
+						<span class="mr10"><i class="iconfont clf94">&#xe616;</i> <{$data.count_love}></span>
+						<span class="mr10"><i class="iconfont clf94">&#xe622;</i> <{$data.count_comment}></span>
+						<span><i class="iconfont clf94">&#xe630;</i> <{$data.count_view}></span>
 					</div>
-					<div class="fr cl9">11月9日 星期五</div>
+					<div class="fr cl9">作者 : <{$data.author}>&nbsp;&nbsp;<{getTime($data.addtime)}></div>
 				</div>
 				
-				<div class="lh30 fs18 cl4 pro-detail">
+				<div class="lh30 fs18 cl4 pro-detail mt10">
 					<{html_entity_decode($data.content)}>
 				</div>
 				<div class="mt20 pt5 pb5 clearfix">
@@ -72,7 +39,7 @@
 						<style>
 						.share-item {float: right; width: 50px; height: 34px; }
 						.share-list a {display: block; width: 34px; height: 34px; float: right;margin-left:10px; cursor: pointer; }
-						.jiathis_style_32x32 .jtico{width: 34px; height: 34px !important;background-image:url(images/icon.png);}
+						.jiathis_style_32x32 .jtico{width: 34px; height: 34px !important;background-image:url(/static/images/icon.png);}
 						.jiathis_style_32x32  .jtico_weixin {background-position: -131px -428px; }
 						.jiathis_style_32x32  .jtico_tsina {background-position: -131px -539px; }
 						.jiathis_style_32x32  .jtico_qzone {background-position: -131px -465px; }
@@ -80,61 +47,34 @@
 						</style>
 					</div>
 					<div class="fl cl6 mt5">
-						<span class="mr10"><i class="iconfont clf94">&#xe616;</i> 511213</span>
-						<span class="mr10"><i class="iconfont clf94">&#xe622;</i> 1211</span>
-						<span><i class="iconfont clf94">&#xe630;</i> 12311</span>
+						<span class="mr10"><i class="iconfont clf94">&#xe616;</i> <{$data.count_love}></span>
+						<span class="mr10"><i class="iconfont clf94">&#xe622;</i> <{$data.count_comment}></span>
+						<span><i class="iconfont clf94">&#xe630;</i> <{$data.count_view}></span>
 					</div>
 				</div>
 				<div class="mt30">
-					<div class="fs18 lh30 pt10 pb10 borbe0">评论 (3)</div>
+					<div class="fs18 lh30 pt10 pb10 borbe0">评论 (<{$data.count_comment}>)</div>
 					<div>
 						<ul class="comment-cell clearfix">
+							<{foreach $arrComment as $k => $item}>
 							<li>
-								<a class="avatar" title=""><img src="images/person.jpg" alt=""></a>
+								<a class="avatar" title=""><img src="<{$item.user.face}>" alt="<{$item.user.username}>"></a>
 								<div class="comment-body">
 									<div class="comment-operation">
-										<div class="user-name">光吃不长</div>
+										<div class="user-name"><{$item.user.username}></div>
 										<div class="post-time-v2">
-											11月9日 18:48
+											<{getTime($item.addtime)}>
 										</div>
-										<span class="like-count j-like-comment">150</span>
+										<span class="like-count j-like-comment"><{$item.count_love}></span>
 									</div>
 								</div>
 								<div class="comment-content comment-content_new">
-									这标题。。。。。
+									<{$item.content}>
 								</div>
 							</li>
-							<li>
-								<a class="avatar" title=""><img src="images/person.jpg" alt=""></a>
-								<div class="comment-body">
-									<div class="comment-operation">
-										<div class="user-name">michael_sail</div>
-										<div class="post-time-v2">
-											11月9日 18:48
-										</div>
-										<span class="like-count j-like-comment">22</span>
-									</div>
-								</div>
-								<div class="comment-content comment-content_new">
-									真的很不错哦，强烈推荐。。。。。
-								</div>
-							</li>
-							<li>
-								<a class="avatar" title=""><img src="images/p01.jpg" alt=""></a>
-								<div class="comment-body">
-									<div class="comment-operation">
-										<div class="user-name">光吃不长</div>
-										<div class="post-time-v2">
-											11月9日 18:48
-										</div>
-										<span class="like-count j-like-comment">12</span>
-									</div>
-								</div>
-								<div class="comment-content comment-content_new">
-									充满温暖、女人味以及智慧。柑橘和黑醋栗花蕾的果香前调，地中海树兰花为香味的核心，配以皇家风范的依兰精油，尽显优雅与从容，小苍兰强化香气并凸显浓厚的紫檀基调，就像第二层肌肤一般，倍感润泽，令人难忘~
-								</div>
-							</li>
-							<a href="" class="click-more-reviews">点击加载更多评论</a>
+							<{/foreach}>
+							<!-- 
+							<a href="" class="click-more-reviews">点击加载更多评论</a> -->
 						</ul>
 					</div>
 					<div class="comment-box mt30">
@@ -146,6 +86,22 @@
                        
                     </div>
 				</div>
+			</div>
+			<div class="fr w310">
+				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
+				<ul class="d-rgt-list clearfix">
+					<{foreach $liwu as $k => $item}>
+					<li>
+						<a href="<{url c='article' a='show' id=$item.articleid}>">
+							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
+							<p>
+								<{$item.title}>
+							</p>
+						</a>
+					</li>
+					<{/foreach}>
+				</ul>
+				<a href=""><img src="/static/images/p01.jpg" class="fl w"></a>
 			</div>
 		</div>
 	</article>

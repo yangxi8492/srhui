@@ -7,6 +7,8 @@ class BaseController extends Controller{
 	}
 	
 	function seo(){
+	    $this->a = arg('a');
+	    $this->c = arg('c');
 	    $seo = array(
         	'title' => 'ttttttttttttttt',
         	'keywords' => 'kkkkkkkkkkkkkkkk',

@@ -13,15 +13,22 @@
 	</header>
 	<nav>
 		<ul id="nav">
-            <li class="mainlevel cur"><a href="/">首页</a></li>
-            <li class="mainlevel"><a href="<{url c='article' a='cehua'}>">策划</a></li>
-            <li class="mainlevel"><a href="<{url c='article' a='liwu'}>">礼物</a></li>
-            <li class="mainlevel"><a href="<{url c='article' a='zhufu'}>" class="subm">祝福</a> 
-            	<ul>
-                    <li><a href="" >祝福1</a></li>
-                    <li><a href="" >祝福2</a></li>
-                </ul>
+            <li class="mainlevel <{if $c==''}>cur<{/if}>"><a href="/">首页</a></li>
+            <li class="mainlevel"><a href="<{url c='article' a='cehua'}>" <{if $c=='article' && $a=='cehua'}>class="cur"<{/if}>>策划</a></li>
+            <li class="mainlevel"><a href="<{url c='article' a='liwu'}>" class="subm <{if $c=='article' && $a=='liwu'}>cur<{/if}>">礼物</a>
+	            <ul>
+	                <li><a href="<{url c='article' a='liwu' cid='5'}>" >送自己</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='6'}>" >送男票</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='7'}>" >送女票</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='8'}>" >送闺蜜</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='9'}>" >送基友</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='10'}>" >送父母</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='11'}>" >送同事</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='12'}>" >送小孩</a></li>
+	            </ul>
+	        </li>
+            <li class="mainlevel"><a href="<{url c='article' a='zhufu'}>" <{if $c=='article' && $a=='zhufu'}>class="cur"<{/if}>>祝福</a> 
             </li>
-            <li class="mainlevel"><a href="<{url c='article' a='news'}>">资讯</a> </li>
+            <li class="mainlevel"><a href="<{url c='article' a='news'}>" <{if $c=='article' && $a=='news'}>class="cur"<{/if}>>资讯</a> </li>
         </ul>
 	</nav>

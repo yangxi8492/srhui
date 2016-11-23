@@ -5,7 +5,12 @@ date_default_timezone_set('PRC');
 
 $config = array(
 	'rewrite' => array(
-	    'item/go/<id>' => 'item/go'
+	    
+	    'item/go/<id>' => 'item/go',
+	    'liwu' => 'article/liwu',
+	    'p/<aid>' => 'article/detail'
+	    //'liwu/<cid>' => 'article/liwu?cid=5'
+	    
 	    
 	    /**'u/<uid>' => 'user/index',//用户
 	    'sign_in' => 'user/login',
@@ -21,7 +26,7 @@ $config = array(
 	    //'<t>' => 'main/index',
 		'admin/index.html' => 'admin/main/index',
 		'admin/<c>_<a>.html'    => 'admin/<c>/<a>', 
-		'<c>/<a>'          => '<c>/<a>',
+		'<c>/<a>'  => '<c>/<a>',
 		'/'                => 'main/index',**/
 	)
 );

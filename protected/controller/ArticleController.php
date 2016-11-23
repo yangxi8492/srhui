@@ -1,22 +1,41 @@
 <?php
 class ArticleController extends BaseController {
 	// 这里先构造点数据
-	public $fakedata = array(
-		"title" => "静夜思",
-		"code"  => array(
-			"one"   => "床前明月光",
-			"two"   => "疑是地上霜",
-			"three" => "举头望明月",
-			"four"  => "低头思故乡"
-		),
-		"author"   => "李白"
+	public $cateName = array(
+		5 => "送自己",
+		6 => "送男票",
+		7 => "送女票",
+	    8  => "送闺蜜",
+	    9  => "送基友",
+	    10 => "送父母",
+	    11 => "送同事",
+	    12 => "送小朋友"
+	);
+	public $gexingName = array(
+	    13 => "美物",
+	    14 => "手工",
+	    15 => "吃货",
+	    16  => "萌萌哒",
+	    17  => "小清新",
+	    18 => "动漫迷",
+	    19 => "科技范",
 	);
 	function actionLiwu(){
-	    $page = arg('page', 1);
+	    $page = intval(arg('page', 1));
+	    $cid = arg('cid');
+	    $gid = arg('gid');
 	    $pSize = 21;
-	    
 	    $article = new Article();
-	     
+	    $title = '';
+	    
+	    if($cid){
+	        $conditions['childid'] = intval($cid);
+	        $title .= $this->cateName[$cid].',';
+	    }
+	    if($gid){
+	        $conditions['gexingid'] = intval($gid);
+	        $title .= $this->gexingName[$gid].',';
+	    }
 	    //礼物
 	    $conditions['cateid'] = 2;
 	    $limit = array($page, $pSize);
@@ -26,14 +45,20 @@ class ArticleController extends BaseController {
 	    $sum = $article->findCount($conditions);
 	    $this->pager = page( $sum, $page, $pSize);
 	    $this->liwu = $liwu;
-	    
+	    $this->cid = $cid;
+	    $this->gid = $gid;
 	    if($page>1){
 	        $str = '【第'.$page.'页】 - ';
 	    }
-	    
-	    $this->title = $str.'生日礼物,送女生,送男生 - 生日汇';
-	    $this->sitekey = '生日礼物,送女生生日礼物,送男生生日礼物,生日礼物送什么好,生日汇,生日礼物网';
-	    $this->sitedesc = $str.'生日礼物送什么好,送女生生日礼物,送男生生日礼物,生日汇帮您精选了生日礼物清单,让你不用再为礼物烦恼.';
+	    if($title){
+	        $this->title = $str.$title.'生日礼物 - 生日汇';
+	        $this->sitekey = $title.'生日礼物,生日礼物送什么好,生日汇,生日礼物网';
+	        $this->sitedesc = $str.$title.'生日礼物,'.$title.'什么生日礼物好,生日汇帮您精选了生日礼物清单,让你不用再为礼物烦恼.';
+	    }else{
+	       $this->title = $str.'生日礼物,送女生,送男生 - 生日汇';
+	       $this->sitekey = '生日礼物,送女生生日礼物,送男生生日礼物,生日礼物送什么好,生日汇,生日礼物网';
+	       $this->sitedesc = $str.'生日礼物送什么好,送女生生日礼物,送男生生日礼物,生日汇帮您精选了生日礼物清单,让你不用再为礼物烦恼.';
+	    }
 	}
 	
 	function actionCehua(){
@@ -123,7 +148,7 @@ class ArticleController extends BaseController {
 	    $id = intval(arg('aid'));
 	    if(empty($id)){
 	        msgJump('参数错误', '/');
-	    }
+	    }//$this->a = 'liwu';
 	    $article = new Article();
 	    $userInfo = new User_info();
 	     
@@ -162,7 +187,8 @@ class ArticleController extends BaseController {
 	    ), array (
 	        'count_view' => $data ['count_view'] + 1
 	    ) );
-	     
+	    
+	    $this->a = 'liwu';
 	    $this->data = $data;
 	    $this->arrComment = $arrComment;
 	    $this->title = $data['title'].' - 生日祝福 - 生日汇';
