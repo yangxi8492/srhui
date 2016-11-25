@@ -14,7 +14,7 @@
 		<div class="w980 autolr">
 			<div class="fl w600">
 				<div class="lh24 fs16 cl3">
-					<a href="/" class="cl3">首页</a> > <a href="<{url c='article' a='zhufu'}>" class="cl3">祝福</a>
+					<a href="/" class="cl3">首页</a> > <a href="<{url c='zhufu' a='index'}>" class="cl3">祝福</a>
 				</div>
 				<div class="pt20 pb20">
 					<!-- <div class="clearfix">
@@ -25,16 +25,16 @@
 						</div>
 					</div> -->
 					<div class="lh24 cl3 fs15 pb20">
-						<{$data.content}>
+						<{$zhufu.content}>
 					</div>
 					<div class="pt10 pb10 doctorimgs tc">
 						<img src="">
 					</div>
 					<div class="clearfix lh20 fs12">
-						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe63e;</i> 赞(<{$data.count_love}>)</a>
-						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe60d;</i> 查看(<{$data.count_view}>)</a>
-						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe622;</i> 评论(<{$data.count_comment}>)</a>
-						<span class="fl bgf5 pl5 pr5 mr10 cl9">作者 : <{$data.author}>  &nbsp;&nbsp;日期 : (<{$data.addtime}>)</span>
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe63e;</i> 赞(<{$zhufu.count_love}>)</a>
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe60d;</i> 查看(<{$zhufu.count_view}>)</a>
+						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe622;</i> 评论(<{$zhufu.count_comment}>)</a>
+						<span class="fl bgf5 pl5 pr5 mr10 cl9">作者 : <{$zhufu.author}>  &nbsp;&nbsp;日期 : (<{$zhufu.addtime}>)</span>
 					</div>
 				</div>
 				<{foreach $arrRecommend as $k => $item}>

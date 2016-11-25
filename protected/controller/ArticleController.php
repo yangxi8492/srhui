@@ -25,7 +25,7 @@ class ArticleController extends BaseController {
 	    $cid = arg('cid');
 	    $gid = arg('gid');
 	    $pSize = 21;
-	    $article = new Article();
+	    $articleMode = new Article();
 	    $title = '';
 	    
 	    if($cid){
@@ -40,9 +40,9 @@ class ArticleController extends BaseController {
 	    $conditions['cateid'] = 2;
 	    $limit = array($page, $pSize);
 	    $fields = 'articleid,cateid,title,description,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
-	    $liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 
-	    $sum = $article->findCount($conditions);
+	    $sum = $articleMode->findCount($conditions);
 	    $this->pager = page( $sum, $page, $pSize);
 	    $this->liwu = $liwu;
 	    $this->cid = $cid;
@@ -65,14 +65,14 @@ class ArticleController extends BaseController {
 	    $page = arg('page', 1);
 	    $pSize = 15;
 	     
-	    $article = new Article();
+	    $articleMode = new Article();
 	
 	    //策划
 	    $conditions['cateid'] = 1;
 	    $limit = array($page, $pSize);
 	    $fields = 'articleid,cateid,title,description,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
-	    $cehua = $article->findAll($conditions, 'articleid desc', $fields, $limit);
-	    $sum = $article->findCount($conditions);
+	    $cehua = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $sum = $articleMode->findCount($conditions);
 	    $this->pager = page( $sum, $page, $pSize);
 	    $this->cehua = $cehua;
 	    
@@ -80,7 +80,7 @@ class ArticleController extends BaseController {
 	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 5);
-	    $this->liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 	    
 	    if($page>1){
 	        $str = '【第'.$page.'页】 - ';
@@ -94,14 +94,14 @@ class ArticleController extends BaseController {
 	    $page = arg('page', 1);
 	    $pSize = 15;
 	
-	    $article = new Article();
+	    $articleMode = new Article();
 	
 	    //策划
 	    $conditions['cateid'] = 4;
 	    $limit = array($page, $pSize);
 	    $fields = 'articleid,cateid,title,description,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
-	    $cehua = $article->findAll($conditions, 'articleid desc', $fields, $limit);
-	    $sum = $article->findCount($conditions);
+	    $cehua = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $sum = $articleMode->findCount($conditions);
 	    $this->pager = page( $sum, $page, $pSize);
 	    $this->cehua = $cehua;
 	     
@@ -109,7 +109,7 @@ class ArticleController extends BaseController {
 	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 5);
-	    $this->liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 	     
 	    if($page>1){
 	        $str = '【第'.$page.'页】 - ';
@@ -123,13 +123,13 @@ class ArticleController extends BaseController {
 	    $page = arg('page', 1);
 	    $pSize = 15;
 	    
-	    $article = new Article();
+	    $articleMode = new Article();
 	    
 	    $conditions['cateid'] = 3;
 	    $limit = array($page, $pSize);
 	    $fields = 'articleid,cateid,title,content,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
-	    $zhufu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
-	    $this->sum = $article->findCount($conditions);
+	    $zhufu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $this->sum = $articleMode->findCount($conditions);
 	    $this->pager = page( $this->sum, $page, $pSize);
 	    $this->cehua = $zhufu;
 	    
@@ -137,7 +137,7 @@ class ArticleController extends BaseController {
 	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 5);
-	    $this->liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 	    
 	    if($page>1){
 	        $str = '【第'.$page.'页】 - ';
@@ -149,19 +149,19 @@ class ArticleController extends BaseController {
 	    if(empty($id)){
 	        msgJump('参数错误', '/');
 	    }//$this->a = 'liwu';
-	    $article = new Article();
-	    $userInfo = new User_info();
+	    $articleMode = new Article();
+	    $userInfoMode = new User_info();
 	     
 	    $conditions['articleid'] = $id;
 	    $conditions['isaudit'] = 1;
 	    $conditions['cateid'] = 2;
-	    $data = $article->find( $conditions );
+	    $data = $articleMode->find( $conditions );
 	    //$data['user'] = $userInfo->getOneUser($data['userid']);
 	     
 	    $sort = 'articleid desc';
 	    $conditions['isrecommend'] = 1;
 	    unset($conditions['articleid']);
-	    $this->arrRecommend = $article->findAll($conditions, $sort, '*', array(1, 5));
+	    $this->arrRecommend = $articleMode->findAll($conditions, $sort, '*', array(1, 5));
 	     
 	    // 获取评论
 	    $ArticleComment = new Article_comment();
@@ -172,17 +172,17 @@ class ArticleController extends BaseController {
 	    foreach ( $arrComments as $key => $item ) {
 	        $arrComment [] = $item;
 	        $arrComment[$key]['content'] = tsDecode($item['content']);
-	        $arrComment[$key]['user'] = $userInfo->getOneUser ( $item ['userid'] );
+	        $arrComment[$key]['user'] = $userInfoMode->getOneUser ( $item ['userid'] );
 	    }
 	     
 	    //礼物
 	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 5);
-	    $this->liwu = $article->findAll($conditions, 'articleid desc', '*', $limit);
+	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', '*', $limit);
 	     
 	    // 统计查看次数
-	    $article->update ( array (
+	    $articleMode->update ( array (
 	        'articleid' => $data ['articleid']
 	    ), array (
 	        'count_view' => $data ['count_view'] + 1
@@ -202,19 +202,19 @@ class ArticleController extends BaseController {
 	    if(empty($id)){
 	        msgJump('参数错误', '/');
 	    }
-	    $article = new Article();
-	    $userInfo = new User_info();
+	    $articleMode = new Article();
+	    $userInfoMode = new User_info();
 	    
 	    $conditions['articleid'] = $id;
 	    $conditions['isaudit'] = 1;
 	    $conditions['cateid'] = 3;
-	    $data = $article->find( $conditions );
+	    $data = $articleMode->find( $conditions );
 	    //$data['user'] = $userInfo->getOneUser($data['userid']);
 	    
 	    $sort = 'articleid desc';
 	    $conditions['isrecommend'] = 1;
 	    unset($conditions['articleid']);
-	    $this->arrRecommend = $article->findAll($conditions, $sort, '*', array(1, 5));
+	    $this->arrRecommend = $articleMode->findAll($conditions, $sort, '*', array(1, 5));
 	    
 	    // 获取评论
 	    $ArticleComment = new Article_comment();
@@ -225,17 +225,17 @@ class ArticleController extends BaseController {
 	    foreach ( $arrComments as $key => $item ) {
 	        $arrComment [] = $item;
 	        $arrComment[$key]['content'] = tsDecode($item['content']);
-	        $arrComment[$key]['user'] = $userInfo->getOneUser ( $item ['userid'] );
+	        $arrComment[$key]['user'] = $userInfoMode->getOneUser ( $item ['userid'] );
 	    }
 	    
 	    //礼物
 	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 5);
-	    $this->liwu = $article->findAll($conditions, 'articleid desc', '*', $limit);
+	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', '*', $limit);
 	    
 	    // 统计查看次数
-	    $article->update ( array (
+	    $articleMode->update ( array (
 	        'articleid' => $data ['articleid']
 	    ), array (
 	        'count_view' => $data ['count_view'] + 1

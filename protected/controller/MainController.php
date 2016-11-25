@@ -3,20 +3,20 @@ class MainController extends BaseController {
 	// 首页
 	function actionIndex(){
 		$t = arg('t', 'new');
-	    $article = new Article();
-	    $articleCate = new Article_cate();
+	    $articleMode = new Article();
+	    $articleCateMode = new Article_cate();
 	    
 	    $fields = 'articleid,cateid,title,description,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
 	    //礼物
  	    $conditions['cateid'] = 2;
 	    $conditions['isrecommend'] = 1;
 	    $limit = array(1, 30);
-	    $liwu = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 	    
 	    //策划
 	    $conditions['cateid'] = 1;
 	    $limit = array(1, 6);
-	    $cehua = $article->findAll($conditions, 'articleid desc', $fields, $limit);
+	    $cehua = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
 
 	    $this->liwu = $liwu;
 	    $this->cehua = $cehua;

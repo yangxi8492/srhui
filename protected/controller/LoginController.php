@@ -28,8 +28,8 @@ class LoginController extends BaseController {
 	}
 	
 	private function weiboCallback(){
-		$user = new User();
-		$userInfo = new User_info();
+		$userMode = new User();
+		$userInfoMode = new User_info();
 		
 		$o = new weibo( WB_AKEY , WB_SKEY );
 		if (isset($_REQUEST['code'])) {
@@ -52,9 +52,9 @@ class LoginController extends BaseController {
 		if($openid){
 			$conditions['setname'] = 'weibo';
 			$conditions['openid'] = $openid;
-			$strOpen = $user->find($conditions);
+			$strOpen = $userMode->find($conditions);
 			if($strOpen['userid']){
-				$userData = $userInfo->find(
+				$userData = $userInfoMode->find(
 						array(
 							'userid'=>$strOpen['userid'],
 						)
@@ -62,7 +62,7 @@ class LoginController extends BaseController {
 				$row['ip'] = $_SERVER["REMOTE_ADDR"];
 				$row['uptime'] = time();
 				$row['access_token'] = $access_token;
-				$userInfo->update(array('userid'=>$strOpen['userid']), $row);
+				$userInfoMode->update(array('userid'=>$strOpen['userid']), $row);
 					
 				$_SESSION['srUser']	= $userData;
 				header("Location: /");
@@ -87,7 +87,7 @@ class LoginController extends BaseController {
 			$salt = md5(rand());
 			$pwd = random(5,0);
 			
-			$userid = $user->create(array(
+			$userid = $userMode->create(array(
 					'pwd'		=> md5($salt.$pwd),
 					'salt'		=> $salt,
 					'email'		=> $openid,
@@ -105,13 +105,10 @@ class LoginController extends BaseController {
 				$menu1=intval($menu2/1000);
 				$menu = $menu1.'/'.$menu2;
 				$photo = $userid.'.jpg';
-					
 				$photos = $menu.'/'.$photo;
 					
 				$dir = 'uploadfile/user/'.$menu;
-					
 				$dfile = $dir.'/'.$photo;
-					
 				createFolders($dir);
 					
 				if(!is_file($dfile)){
@@ -120,7 +117,7 @@ class LoginController extends BaseController {
 				};
 			}
 			//插入user_info
-			$userInfo->create(array(
+			$userInfoMode->create(array(
 					'userid'	=> $userid,
 					'username' 	=> $arrUserInfo['screen_name'],
 					'email'		=> $openid,
@@ -131,7 +128,7 @@ class LoginController extends BaseController {
 					'face'		=> $photos,
 			));
 			//获取用户信息
-			$userData = $userInfo->find(
+			$userData = $userInfoMode->find(
 					array(
 							'userid' => $userid,
 					)
@@ -143,8 +140,8 @@ class LoginController extends BaseController {
 	}
 	
 	private function qqCallback(){
-		$user = new User();
-		$userInfo = new User_info();
+		$userMode = new User();
+		$userInfoMode = new User_info();
 		
 		$qq = new qq();
 		$access_token = $qq->qq_callback();
@@ -152,9 +149,9 @@ class LoginController extends BaseController {
 		if($openid){
 			$conditions['setname'] = 'qq';
 			$conditions['openid'] = $openid;
-			$strOpen = $user->find($conditions);
+			$strOpen = $userMode->find($conditions);
 			if($strOpen['userid']){
-				$userData = $userInfo->find(
+				$userData = $userInfoMode->find(
 						array(
 								'userid'=>$strOpen['userid'],
 						)
@@ -162,7 +159,7 @@ class LoginController extends BaseController {
 				$row['ip'] = $_SERVER["REMOTE_ADDR"];
 				$row['uptime'] = time();
 				$row['access_token'] = $access_token;
-				$userInfo->update(array('userid'=>$strOpen['userid']), $row);
+				$userInfoMode->update(array('userid'=>$strOpen['userid']), $row);
 					
 				$_SESSION['srUser']	= $userData;
 				header("Location: /");
@@ -196,7 +193,7 @@ class LoginController extends BaseController {
 		
 			$salt = md5(rand());
 			$pwd = random(5,0);
-			$userid = $user->create(array(
+			$userid = $userMode->create(array(
 					'pwd'		=> md5($salt.$pwd),
 					'salt'		=> $salt,
 					'email'		=> $openid,
@@ -227,7 +224,7 @@ class LoginController extends BaseController {
 			}
 		
 			//插入user_info
-			$userInfo->create(array(
+			$userInfoMode->create(array(
 					'userid'	=> $userid,
 					'username' 	=> $arrUserInfo['nickname'],
 					'email'		=> $openid,
@@ -238,7 +235,7 @@ class LoginController extends BaseController {
 					'face'		=> $photos,
 			));
 			//获取用户信息
-			$userData = $userInfo->find(
+			$userData = $userInfoMode->find(
 					array(
 							'userid' => $userid,
 					)
