@@ -16,7 +16,7 @@ class ZhufuController extends BaseController {
 		$page = arg('page', 1);
 	    $pSize = 15;
 	    
-	    $args[0] = '1=1';
+	    $args['isaudit'] = '1';
 	    $blessingModle = new Blessing();
 	    $zhufu         = $blessingModle->findAll($args, 'blessingid desc', '*', array($page, $pSize));
 	    $this->sum     = $blessingModle->findCount($args);
@@ -30,7 +30,6 @@ class ZhufuController extends BaseController {
 	    $limit = array(1, 5);
 	    $fields = 'articleid,cateid,title,content,path,photo,isaudit,isrecommend,count_comment,count_view,addtime,count_love';
 	    $this->liwu = $articleMode->findAll($conditions, 'articleid desc', $fields, $limit);
-	     
 	    
 	    if($page>1){
 	    	$str = '【第'.$page.'页】 - ';
@@ -39,7 +38,7 @@ class ZhufuController extends BaseController {
 	
 	function actionDetail(){
 		//祝福语ID
-		$this->zid = $blessingid = intval(arg('zid'));
+		$this->id = $blessingid = intval(arg('id'));
 		
 		if(empty($blessingid)){
 			msgJump('参数错误', '/');
@@ -75,7 +74,7 @@ class ZhufuController extends BaseController {
 		 
 		// 统计查看次数
 		$blessingModle->update ( array (
-				'articleid' => $zhufu ['articleid']
+				'blessingid' => $zhufu ['blessingid']
 		), array (
 				'count_view' => $zhufu ['count_view'] + 1
 		) );

@@ -21,7 +21,7 @@
 					<li>
 						<img src="<{tsXimg($item.photo,'article',190,140,$item.path,1)}>" class="fl w190 h140 bsc brno bpc">
 						<div class="fr w480 lh18 cl9">
-							<a href="<{url c='article' a='show' aid=$item.articleid}>" class="newtitle"><{$item.title}></a>
+							<a href="<{url c='article' a='detail' aid=$item.articleid}>" class="newtitle"><{$item.title}></a>
 							<p class="fl mt20">
 								<{$item.description}>
 							</p>
@@ -36,7 +36,8 @@
 			<div class="fr w260">
 				<div class="pb20 lh24 fs18 cl3">推荐礼物</div>
 				<{foreach $liwu as $k => $item}>
-				<a href="" class="newtitle"><img src="<{tsXimg($item.photo,'article',310,140,$item.path,1)}>" class="fl w">
+				<a href="<{url c='article' a='detail' aid=$item.articleid}>" title="<{$item.title}>" class="newtitle">
+				<img src="<{tsXimg($item.photo,'article',310,140,$item.path,1)}>" class="fl w">
 					<h3><{$item.title}></h3></a>
 				<{/foreach}>
 			</div>

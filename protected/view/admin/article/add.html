@@ -70,7 +70,12 @@
 				<dl class="fl w lh24 pt10 pb10 lh30">
 					<dt class="fl w100">文章缩略图：</dt>
 					<dd class="fl">
+					<{if $strArticle.photo != ''}>
+						<img width="50" src="/uploadfile/article/<{$strArticle.photo}>">
+						<{/if}>
+						<input type="hidden" name="photo" value="<{$strArticle.photo}>" class="">
 						<input type="file" name="image" value="" class="">
+						
 					</dd>
 				</dl>
 				<dl class="fl w lh24 pt10 pb10 lh30">

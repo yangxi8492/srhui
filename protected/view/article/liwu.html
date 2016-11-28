@@ -52,7 +52,7 @@
 			<ul class="product-list mt20 clearfix">
 				<{foreach $liwu as $k => $item}>
 				<li>
-					<a href="<{url c='article' a='detail' aid=$item.articleid}>">
+					<a href="<{url c='article' a='detail' aid=$item.articleid}>" title="<{$item.title}>">
 						<div class="h140"><img src="<{tsXimg($item.photo,'article',310,140,$item.path,1)}>" alt='<{$item.title}>' class='w310 h140 boradius-lr6'></div>
 						<div class="p15">
 							<h2 class="lh28 pb5 overhide fs16 cl3"><{$item.title}></h2>

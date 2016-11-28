@@ -21,7 +21,7 @@
 					<li>
 						<img src="<{tsXimg($item.photo,'article',190,140,$item.path,1)}>" class="fl w190 h140 bsc brno bpc">
 						<div class="fr w480 lh18 cl9">
-							<a href="<{url c='article' a='show' aid=$item.articleid}>" class="newtitle"><{$item.title}></a>
+							<a href="<{url c='article' a='detail' aid=$item.articleid}>" class="newtitle"><{$item.title}></a>
 							<p class="fl mt20">
 								<{$item.description}>
 							</p>
@@ -38,7 +38,7 @@
 				<ul class="d-rgt-list clearfix">
 					<{foreach $liwu as $k => $item}>
 					<li>
-						<a href="">
+						<a href="<{url c='article' a='detail' aid=$item.articleid}>" title="<{$item.title}>">
 							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
 							<p>
 								<{$item.title}>

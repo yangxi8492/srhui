@@ -124,7 +124,7 @@ function tsXimg($file, $app, $w, $h, $path = '', $c = '0') {
             }
         }
 
-        return $cpath;
+        return '/'.$cpath;
 
     }
 }

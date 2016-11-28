@@ -97,15 +97,15 @@ class ArticleController extends BaseController {
 	    $this->gexingCate = $ArticleCate->findAll ($param);
 	    
         if($articleid){
-            $Article = new Article();
-    	    $this->strArticle = $Article->getOneArticle($articleid);
+            $ArticleMode = new Article();
+    	    $this->strArticle = $ArticleMode->find(array('articleid'=>$articleid));
+    	    //$Article->getOneArticle($articleid);
         }
 	}
 	
 	function actionSave(){
 	    $data = arg();
 	    $data['content'] = $data['elm1'];
-	    $data['addtime'] = $data['updtime'] = date("Y-m-d H:i:s");
 	    $data['userid'] = $_SESSION['admin']['id'];
 	    $data['randid'] = rand(10000000, 99999999);
 	    $articleid = $data['articleid'];
@@ -133,11 +133,35 @@ class ArticleController extends BaseController {
     	        $data['photo'] = $up['desc_file'];  //返回的文件名称
     	    }
 	    }
+	    if(empty($data['photo'])){
+	        //取内容图片
+	        preg_match('/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i',$data['content'],$match);
+	        
+	        //1000个图片一个目录
+	        $menu1=date("Ymd");
+	        $menu2='0';
+	        $menu = $menu1.'/'.$menu2;
+	        $photo = time().mt_rand(1000, 9999).'.jpg';
+	        $photos = $menu.'/'.$photo;
+	        
+	        $dir = 'upload/article/'.$menu;
+	        $dfile = $dir.'/'.$photo;
+	        createFolders($dir);
+	        
+	        if(!is_file($dfile)){
+	            $img = file_get_contents($match[1]);
+	            file_put_contents($dfile,$img);
+	        };
+	        $data['path'] = $menu;  //路径
+	        $data['photo'] = $photos;  //返回的文件名称
+	    }
 	    $artInfo = new Article();
+	    $data['updtime'] = time();
 	    if($articleid){
 	        $rs = $artInfo->update(array('articleid'=>$articleid), $data);
 	    }else{
-	       $rs = $artInfo->create($data);
+	        $data['addtime'] = time();
+	        $rs = $artInfo->create($data);
 	    }
 	    if($rs){
 	        msgJump('操作成功,'.$str, url('admin/article','add', array('aid'=>$articleid)));return;
@@ -177,7 +201,6 @@ class ArticleController extends BaseController {
 	    
 	    $Article = new Article();
 	    if($data['articleid']){
-	        $data['updtime'] = date('Y-m-d H:i:s');
     	    $Article->update ( array (
     	        'articleid' => $data ['articleid']
     	    ), $data );

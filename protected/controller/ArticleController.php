@@ -154,10 +154,10 @@ class ArticleController extends BaseController {
 	     
 	    $conditions['articleid'] = $id;
 	    $conditions['isaudit'] = 1;
-	    $conditions['cateid'] = 2;
+	    //$conditions['cateid'] = 2;
 	    $data = $articleMode->find( $conditions );
 	    //$data['user'] = $userInfo->getOneUser($data['userid']);
-	     
+	    
 	    $sort = 'articleid desc';
 	    $conditions['isrecommend'] = 1;
 	    unset($conditions['articleid']);
@@ -193,12 +193,12 @@ class ArticleController extends BaseController {
 	    $this->arrComment = $arrComment;
 	    $this->title = $data['title'].' - 生日祝福 - 生日汇';
 	    $this->sitekey = $data['keyword'].',生日汇';
-	    $this->sitedesc = $data['content'];
+	    $this->sitedesc = $data['description'];
 	     
 	}
 	
 	function actionShow(){
-	    $id = intval(arg('id'));
+	    $id = intval(arg('aid'));
 	    if(empty($id)){
 	        msgJump('参数错误', '/');
 	    }

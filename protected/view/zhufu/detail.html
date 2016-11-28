@@ -34,7 +34,7 @@
 						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe63e;</i> 赞(<{$zhufu.count_love}>)</a>
 						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe60d;</i> 查看(<{$zhufu.count_view}>)</a>
 						<a href="javascript:;" class="fr cl9 fs12 ml10"><i class="iconfont">&#xe622;</i> 评论(<{$zhufu.count_comment}>)</a>
-						<span class="fl bgf5 pl5 pr5 mr10 cl9">作者 : <{$zhufu.author}>  &nbsp;&nbsp;日期 : (<{$zhufu.addtime}>)</span>
+						<span class="fl bgf5 pl5 pr5 mr10 cl9">日期 : (<{$zhufu.addtime}>)</span>
 					</div>
 				</div>
 				<{foreach $arrRecommend as $k => $item}>
@@ -42,7 +42,7 @@
 					<a href="" class="cl6"><{$data.content}></a>
 				</p>
 				<{/foreach}>
-				<div class="fs18 lh30 pt20 pb10 borbe0">评论 (3)</div>
+				<div class="fs18 lh30 pt20 pb10 borbe0">评论 (<{$zhufu.count_comment}>)</div>
 				<{foreach $arrComment as $k => $item}>
 				<div class="pt20 pb10 borbea">
 					<a class="fl avatar" title=""><img src="<{$item.user.face}>" alt=""></a>
@@ -67,7 +67,7 @@
 				<ul class="d-rgt-list clearfix">
 					<{foreach $liwu as $k => $item}>
 					<li>
-						<a href="<{url c='article' a='show' id=$item.articleid}>">
+						<a href="<{url c='article' a='detail' aid=$item.articleid}>" title="<{$item.title}>">
 							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
 							<p>
 								<{$item.title}>

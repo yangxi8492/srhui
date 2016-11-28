@@ -1,11 +1,9 @@
 	<header>
 		<div class="w980 autolr clearfix">
-			<a href="javascript:;" class="fr btn-login">
-				登录 / 注册
-			</a>
-			<a href="/" class="fl"><img src="/static/images/logo.gif"></a>
+			<a href="javascript:;" class="fr btn-login">登录 / 注册</a>
+			<a href="/" title="生日汇" class="fl"><img src="/static/images/logo.gif"></a>
 			<form class="fl searchbox" onsubmit="return false;">
-				<input type="text" id="search-input" placeholder="搜索礼物、攻略">
+				<input type="text" id="search-input" placeholder="搜索生日礼物、攻略">
 				<label for="search-input">搜索</label>
 				<i></i>
 			</form>
@@ -13,22 +11,22 @@
 	</header>
 	<nav>
 		<ul id="nav">
-            <li class="mainlevel <{if $c==''}>cur<{/if}>"><a href="/">首页</a></li>
-            <li class="mainlevel"><a href="<{url c='article' a='cehua'}>" <{if $c=='article' && $a=='cehua'}>class="cur"<{/if}>>策划</a></li>
-            <li class="mainlevel"><a href="<{url c='article' a='liwu'}>" class="subm <{if $c=='article' && $a=='liwu'}>cur<{/if}>">礼物</a>
+            <li class="mainlevel <{if $c==''}>cur<{/if}>"><a href="/" title="生日汇">首页</a></li>
+            <li class="mainlevel"><a href="<{url c='article' a='cehua'}>" title="生日策划"<{if $c=='article' && $a=='cehua'}> class="cur"<{/if}>>策划</a></li>
+            <li class="mainlevel"><a href="<{url c='article' a='liwu'}>" title="生日礼物" class="subm <{if $c=='article' && $a=='liwu'}>cur<{/if}>">礼物</a>
 	            <ul>
-	                <li><a href="<{url c='article' a='liwu' cid='5'}>" >送自己</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='6'}>" >送男票</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='7'}>" >送女票</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='8'}>" >送闺蜜</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='9'}>" >送基友</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='10'}>" >送父母</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='11'}>" >送同事</a></li>
-	                <li><a href="<{url c='article' a='liwu' cid='12'}>" >送小孩</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='5'}>" title="送自己礼物">送自己</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='6'}>" title="送男票礼物">送男票</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='7'}>" title="送女票礼物">送女票</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='8'}>" title="送闺蜜礼物">送闺蜜</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='9'}>" title="送基友礼物">送基友</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='10'}>" title="送父母礼物">送父母</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='11'}>" title="送同事礼物">送同事</a></li>
+	                <li><a href="<{url c='article' a='liwu' cid='12'}>" title="送小孩礼物">送小孩</a></li>
 	            </ul>
 	        </li>
-            <li class="mainlevel"><a href="<{url c='zhufu' a='index'}>" <{if $c=='zhufu' && $a=='index'}>class="cur"<{/if}>>祝福</a> 
+            <li class="mainlevel"><a href="<{url c='zhufu' a='index'}>" title="生日祝福"<{if $c=='zhufu' && $a=='index'}> class="cur"<{/if}>>祝福</a> 
             </li>
-            <li class="mainlevel"><a href="<{url c='article' a='news'}>" <{if $c=='article' && $a=='news'}>class="cur"<{/if}>>资讯</a> </li>
+            <li class="mainlevel"><a href="<{url c='article' a='news'}>" title="生日资讯"<{if $c=='article' && $a=='news'}> class="cur"<{/if}>>资讯</a> </li>
         </ul>
 	</nav>

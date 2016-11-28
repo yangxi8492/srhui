@@ -65,7 +65,7 @@
 				<ul class="d-rgt-list clearfix">
 					<{foreach $liwu as $k => $item}>
 					<li>
-						<a href="<{url c='article' a='show' id=$item.articleid}>">
+						<a href="<{url c='article' a='detail' aid=$item.articleid}>" title="<{$item.title}>">
 							<img src="<{tsXimg($item.photo,'article',80,80,$item.path,1)}>" class="bsc brno bpc" >
 							<p>
 								<{$item.title}>

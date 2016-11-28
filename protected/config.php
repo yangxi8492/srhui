@@ -5,10 +5,21 @@ date_default_timezone_set('PRC');
 
 $config = array(
 	'rewrite' => array(
-	    
+	    //后台
+	    'admin/liwu' => 'admin/article/liwu',
+	    'admin/cehua' => 'admin/article/cehua',
+	    'admin/news' => 'admin/article/news',
+	    'admin/zhufu' => 'admin/blessing/list',
+	    //跳转
 	    'item/go/<id>' => 'item/go',
+	    //列表
 	    'liwu' => 'article/liwu',
+	    'cehua' => 'article/cehua',
+	    'news' => 'article/news',
+	    'zhufu' => 'zhufu/index',
+	    //内容
 	    'p/<aid>' => 'article/detail'
+	    
 	    //'liwu/<cid>' => 'article/liwu?cid=5'
 	    
 	    
